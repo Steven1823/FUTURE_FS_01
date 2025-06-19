@@ -49,27 +49,29 @@ export class AppComponent {
     { name: 'Angular', level: 90 },
     { name: 'TypeScript', level: 85 },
     { name: 'JavaScript', level: 90 },
-    { name: 'HTML/CSS', level: 95 },
+    { name: 'Python', level: 80 },
+    { name: 'AI/Machine Learning', level: 75 },
     { name: 'Node.js', level: 80 },
-    { name: 'Python', level: 75 },
+    { name: 'HTML/CSS', level: 95 },
     { name: 'SQL', level: 80 },
-    { name: 'Git', level: 85 }
+    { name: 'Git', level: 85 },
+    { name: 'Woodworking', level: 85 }
   ];
 
   projects: Project[] = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with payment integration, user authentication, and admin dashboard.',
+      title: 'AI-Powered Task Manager',
+      description: 'An intelligent task management application with AI-driven priority suggestions and automated scheduling.',
       image: '/assets/s1.jpg',
-      technologies: ['Angular', 'Node.js', 'MongoDB', 'Stripe'],
+      technologies: ['Angular', 'Python', 'TensorFlow', 'Node.js'],
       liveUrl: '#',
       githubUrl: '#'
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates and team collaboration features.',
+      title: 'E-Commerce Platform',
+      description: 'A full-featured e-commerce platform with payment integration, user authentication, and admin dashboard.',
       image: '/assets/s2.jpg',
-      technologies: ['React', 'Express', 'Socket.io', 'PostgreSQL'],
+      technologies: ['Angular', 'Node.js', 'MongoDB', 'Stripe'],
       liveUrl: '#',
       githubUrl: '#'
     },
