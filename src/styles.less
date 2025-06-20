@@ -1,7 +1,5 @@
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+/* Import Tailwind CSS */
+@import url('https://cdn.tailwindcss.com/3.3.5');
 
 /* Global styles */
 * {
@@ -72,6 +70,21 @@ html {
   animation: pulse-slow 3s infinite;
 }
 
+/* Loading spinner */
+.spinner {
+  border: 2px solid #374151;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Custom button hover effects */
 .btn-primary {
   @apply bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
@@ -97,19 +110,4 @@ html {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* Loading spinner */
-.spinner {
-  border: 2px solid #374151;
-  border-top: 2px solid #3b82f6;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
