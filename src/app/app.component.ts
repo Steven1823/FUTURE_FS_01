@@ -43,9 +43,26 @@ export class AppComponent implements OnInit {
     message: ''
   };
 
+<<<<<<< HEAD
+=======
+  skills: Skill[] = [
+    { name: 'Angular', level: 90 },
+    { name: 'TypeScript', level: 85 },
+    { name: 'JavaScript', level: 90 },
+    { name: 'Python', level: 80 },
+    { name: 'AI/Machine Learning', level: 75 },
+    { name: 'Node.js', level: 80 },
+    { name: 'HTML/CSS', level: 95 },
+    { name: 'SQL', level: 80 },
+    { name: 'Git', level: 85 },
+    { name: 'Woodworking', level: 85 }
+  ];
+
+>>>>>>> master
   projects: Project[] = [
     // Project Showcase - Add your own photos and descriptions
     {
+<<<<<<< HEAD
       title: 'Project Showcase 1',
       description: 'Add description of your first project here - could be software development or woodworking',
       image: 'assets/shem.jpg', // Replace with your project photo
@@ -60,6 +77,54 @@ export class AppComponent implements OnInit {
       technologies: ['Add', 'Your', 'Technologies']
       // liveUrl: 'https://your-live-url.com', // optional - add if it's a web project
       // githubUrl: 'https://github.com/your-repo' // optional - add if it's a code project
+=======
+      title: 'AI-Powered Task Manager',
+      description: 'An intelligent task management application with AI-driven priority suggestions and automated scheduling.',
+      image: '/assets/s1.jpg',
+      technologies: ['Angular', 'Python', 'TensorFlow', 'Node.js'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'E-Commerce Platform',
+      description: 'A full-featured e-commerce platform with payment integration, user authentication, and admin dashboard.',
+      image: '/assets/s2.jpg',
+      technologies: ['Angular', 'Node.js', 'MongoDB', 'Stripe'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Custom Wooden Table',
+      description: 'Handcrafted dining table made from reclaimed oak with modern steel legs and natural finish.',
+      image: '/assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
+      technologies: ['Woodworking', 'Design', 'Craftsmanship'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Weather Dashboard',
+      description: 'A responsive weather dashboard with location-based forecasts and interactive charts.',
+      image: '/assets/s3.jpg',
+      technologies: ['Vue.js', 'Chart.js', 'Weather API'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Wooden Cabinet',
+      description: 'Custom storage cabinet with adjustable shelves and soft-close hinges, perfect for modern homes.',
+      image: '/assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
+      technologies: ['Woodworking', 'Design', 'Hardware'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Portfolio Website',
+      description: 'This very portfolio website built with Angular and Tailwind CSS, featuring smooth animations.',
+      image: '/assets/download.JPG',
+      technologies: ['Angular', 'TypeScript', 'Tailwind CSS'],
+      liveUrl: '#',
+      githubUrl: '#'
+>>>>>>> master
     }
   ];
 

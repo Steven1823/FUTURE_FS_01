@@ -149,6 +149,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div *ngFor="let project of projects" class="bg-gray-800 rounded-lg shadow-xl overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
         <img [src]="project.image" [alt]="project.title" class="w-full h-48 object-cover">
@@ -163,6 +164,30 @@
           <div class="flex space-x-4">
             <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" class="text-blue-400 hover:text-blue-300">
               <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+=======
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-20 pb-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <div class="lg:w-1/2 mb-8 lg:mb-0">
+          <h1 class="text-4xl lg:text-6xl font-bold mb-4">
+            Hi, I'm <span class="text-green-400">Steven Kingoro</span>
+          </h1>
+          <h2 class="text-xl lg:text-2xl text-gray-300 mb-6">
+            Software Developer, AI Enthusiast & Woodworking Craftsman
+          </h2>
+          <p class="text-gray-400 mb-8 max-w-lg">
+            Based in Nairobi, Kenya. I create innovative software solutions, explore cutting-edge AI technologies, 
+            and craft beautiful wooden furniture with the same precision I bring to coding.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" 
+               class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium transition-colors text-center">
+              Get In Touch
+>>>>>>> master
             </a>
             <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" class="text-blue-400 hover:text-blue-300">
               <i class="fab fa-github mr-1"></i> Code
@@ -174,6 +199,7 @@
   </div>
 </section>
 
+<<<<<<< HEAD
 <!-- Contact Section -->
 <section id="contact" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
   <!-- Background decoration -->
@@ -189,6 +215,40 @@
         Ready to bring your project to life? Get in touch and let's discuss how I can help you achieve your goals.
       </p>
     </div>
+=======
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">About Me</h2>
+      
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 text-green-400">My Journey</h3>
+          <p class="text-gray-300 mb-6">
+            I'm a passionate software developer and AI enthusiast with a unique blend of technical expertise 
+            and traditional craftsmanship. My journey in technology spans from building modern web applications 
+            to exploring the frontiers of artificial intelligence, while my love for woodworking keeps me 
+            grounded in the art of creating with my hands.
+          </p>
+          <p class="text-gray-300 mb-6">
+            Based in Nairobi, Kenya, I specialize in creating innovative software solutions using 
+            cutting-edge technologies. Whether it's developing intelligent applications with AI integration 
+            or crafting custom furniture pieces, I bring the same attention to detail and passion for 
+            excellence to everything I create.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center p-4 bg-gray-700 rounded-lg">
+              <div class="text-2xl font-bold text-green-400">3+</div>
+              <div class="text-sm text-gray-300">Years Experience</div>
+            </div>
+            <div class="text-center p-4 bg-gray-700 rounded-lg">
+              <div class="text-2xl font-bold text-green-400">50+</div>
+              <div class="text-sm text-gray-300">Projects Completed</div>
+            </div>
+          </div>
+        </div>
+>>>>>>> master
 
     <!-- Success/Error Messages -->
     <div *ngIf="formMessage" class="max-w-2xl mx-auto mb-8 p-4 rounded-lg border-l-4 shadow-lg" 
@@ -204,6 +264,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
@@ -218,6 +279,105 @@
               <div>
                 <h3 class="text-white font-semibold text-lg">Email Me</h3>
                 <p class="text-gray-400 text-sm">Drop me a line anytime</p>
+=======
+  <!-- Projects Section -->
+  <section id="projects" class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">My Projects</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div *ngFor="let project of projects" 
+             class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+          <div class="relative overflow-hidden">
+            <img [src]="project.image" 
+                 [alt]="project.title"
+                 class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="flex space-x-4">
+                <a [href]="project.liveUrl" 
+                   target="_blank"
+                   class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
+                  View Live
+                </a>
+                <a [href]="project.githubUrl" 
+                   target="_blank"
+                   class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-green-400">{{ project.title }}</h3>
+            <p class="text-gray-300 mb-4">{{ project.description }}</p>
+            
+            <div class="flex flex-wrap gap-2">
+              <span *ngFor="let tech of project.technologies" 
+                    class="px-3 py-1 bg-gray-700 text-green-400 text-sm rounded-full">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">Get In Touch</h2>
+      
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 text-green-400">Let's Connect</h3>
+          <p class="text-gray-300 mb-8">
+            I'm always interested in new opportunities and exciting projects. 
+            Whether you need software development, AI solutions, or custom furniture, let's discuss how we can work together.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="text-gray-300">Email</div>
+                <a href="mailto:stevekingoro&#64;gmail.com" class="text-green-400 hover:text-green-300">
+                  stevekingoro&#64;gmail.com
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="text-gray-300">Phone</div>
+                <a href="tel:+254768388357" class="text-green-400 hover:text-green-300">
+                  +254 768 388 357
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="text-gray-300">Location</div>
+                <div class="text-green-400">Nairobi, Kenya</div>
+>>>>>>> master
               </div>
             </div>
             <a href="mailto:stevekingoro@gmail.com" class="text-blue-400 hover:text-blue-300 transition-colors break-all">
