@@ -1,8 +1,8 @@
 
-/* Tailwind CSS directives */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Import Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* Global styles */
 * {
@@ -90,11 +90,18 @@ html {
 
 /* Custom button hover effects */
 .btn-primary {
-  @apply bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  @apply bg-blue-600 transform -translate-y-1 shadow-lg;
+  background-color: #2563eb;
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Card hover effects */
