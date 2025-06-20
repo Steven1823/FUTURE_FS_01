@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -123,14 +122,14 @@ export class AppComponent implements OnInit {
     }
 
     this.isSubmitting = true;
-    
+
     // Simulate form submission (replace with actual API call)
     setTimeout(() => {
       this.formMessage = {
         type: 'success',
         text: 'Thank you for your message! I\'ll get back to you soon.'
       };
-      
+
       // Reset form
       this.formData = {
         name: '',
@@ -138,9 +137,9 @@ export class AppComponent implements OnInit {
         subject: '',
         message: ''
       };
-      
+
       this.isSubmitting = false;
-      
+
       // Clear message after 5 seconds
       setTimeout(() => {
         this.formMessage = null;
