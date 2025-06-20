@@ -54,6 +54,38 @@ export class AppComponent implements OnInit {
     //   liveUrl: 'https://your-live-url.com', // optional
     //   githubUrl: 'https://github.com/your-repo' // optional
     // }
+
+    // Woodwork Projects - Add your own images and descriptions
+    {
+      title: 'Custom Woodwork Project 1',
+      description: 'Add description of your first woodwork project here',
+      image: 'assets/shem.jpg', // Replace with your project image
+      technologies: ['Woodworking', 'Design', 'Craftsmanship']
+    },
+    {
+      title: 'Custom Woodwork Project 2', 
+      description: 'Add description of your second woodwork project here',
+      image: 'assets/shem.jpg', // Replace with your project image
+      technologies: ['Woodworking', 'Custom Design', 'Hand Crafted']
+    },
+    {
+      title: 'Custom Woodwork Project 3',
+      description: 'Add description of your third woodwork project here', 
+      image: 'assets/shem.jpg', // Replace with your project image
+      technologies: ['Woodworking', 'Furniture Making', 'Precision']
+    },
+    {
+      title: 'Custom Woodwork Project 4',
+      description: 'Add description of your fourth woodwork project here',
+      image: 'assets/shem.jpg', // Replace with your project image
+      technologies: ['Woodworking', 'Creative Design', 'Professional Finish']
+    },
+    {
+      title: 'Custom Woodwork Project 5',
+      description: 'Add description of your fifth woodwork project here',
+      image: 'assets/shem.jpg', // Replace with your project image
+      technologies: ['Woodworking', 'Custom Build', 'Artisan Craft']
+    }
   ];
 
   ngOnInit() {
