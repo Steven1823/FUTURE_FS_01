@@ -1,20 +1,15 @@
-import { Component } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-
-interface Skill {
-  name: string;
-  level: number;
-}
 
 interface Project {
   title: string;
   description: string;
   image: string;
   technologies: string[];
-  liveUrl: string;
-  githubUrl: string;
+  liveUrl?: string;
+  githubUrl?: string;
 }
 
 interface FormData {
@@ -24,19 +19,23 @@ interface FormData {
   message: string;
 }
 
+interface FormMessage {
+  type: 'success' | 'error';
+  text: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.less'
+  styleUrls: ['./app.component.less']
 })
-export class AppComponent {
-  title = 'Steven Kingoro - Portfolio';
+export class AppComponent implements OnInit {
+  title = 'Steven Kingoro Portfolio';
   mobileMenuOpen = false;
   isSubmitting = false;
-  submitMessage = '';
-  submitSuccess = false;
+  formMessage: FormMessage | null = null;
 
   formData: FormData = {
     name: '',
@@ -45,87 +44,92 @@ export class AppComponent {
     message: ''
   };
 
-  skills: Skill[] = [
-    { name: 'Angular', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'JavaScript', level: 90 },
-    { name: 'HTML/CSS', level: 95 },
-    { name: 'Node.js', level: 80 },
-    { name: 'Python', level: 75 },
-    { name: 'SQL', level: 80 },
-    { name: 'Git', level: 85 }
-  ];
-
   projects: Project[] = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with payment integration, user authentication, and admin dashboard.',
-      image: '/assets/s1.jpg',
-      technologies: ['Angular', 'Node.js', 'MongoDB', 'Stripe'],
-      liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates and team collaboration features.',
-      image: '/assets/s2.jpg',
-      technologies: ['React', 'Express', 'Socket.io', 'PostgreSQL'],
-      liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
       title: 'Custom Wooden Table',
-      description: 'Handcrafted dining table made from reclaimed oak with modern steel legs and natural finish.',
-      image: '/assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
-      technologies: ['Woodworking', 'Design', 'Craftsmanship'],
-      liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'A responsive weather dashboard with location-based forecasts and interactive charts.',
-      image: '/assets/s3.jpg',
-      technologies: ['Vue.js', 'Chart.js', 'Weather API'],
-      liveUrl: '#',
-      githubUrl: '#'
+      description: 'Handcrafted wooden table with premium finish and modern design. Built with attention to detail and quality materials.',
+      image: 'assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
+      technologies: ['Woodworking', 'Design', 'Craftsmanship']
     },
     {
       title: 'Wooden Cabinet',
-      description: 'Custom storage cabinet with adjustable shelves and soft-close hinges, perfect for modern homes.',
-      image: '/assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
-      technologies: ['Woodworking', 'Design', 'Hardware'],
+      description: 'Custom storage solution with elegant design. Perfect blend of functionality and aesthetics.',
+      image: 'assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
+      technologies: ['Woodworking', 'Storage Design', 'Custom Build']
+    },
+    {
+      title: 'Portfolio Website',
+      description: 'Interactive portfolio website built with Angular and Tailwind CSS. Fully responsive and modern design.',
+      image: 'assets/s1.jpg',
+      technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'HTML5'],
       liveUrl: '#',
       githubUrl: '#'
     },
     {
-      title: 'Portfolio Website',
-      description: 'This very portfolio website built with Angular and Tailwind CSS, featuring smooth animations.',
-      image: '/assets/download.JPG',
-      technologies: ['Angular', 'TypeScript', 'Tailwind CSS'],
+      title: 'Web Application',
+      description: 'Full-stack web application with PHP backend and MySQL database. Features user authentication and data management.',
+      image: 'assets/s2.jpg',
+      technologies: ['PHP', 'MySQL', 'JavaScript', 'CSS3'],
       liveUrl: '#',
       githubUrl: '#'
+    },
+    {
+      title: 'Database Project',
+      description: 'Complex database design and implementation for portfolio management system.',
+      image: 'assets/s3.jpg',
+      technologies: ['MySQL', 'PHP', 'Database Design', 'SQL'],
+      githubUrl: '#'
+    },
+    {
+      title: 'Professional Woodwork',
+      description: 'High-quality wooden furniture piece with intricate details and professional finish.',
+      image: 'assets/shem.jpg',
+      technologies: ['Advanced Woodworking', 'Furniture Design', 'Professional Finish']
     }
   ];
 
-  toggleMobileMenu(): void {
+  ngOnInit() {
+    // Load Font Awesome
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(link);
+  }
+
+  toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
-  closeMobileMenu(): void {
+  scrollTo(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const offset = 80; // Account for fixed navbar
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
     this.mobileMenuOpen = false;
   }
 
-  onSubmit(): void {
-    if (this.isSubmitting) return;
+  onSubmit() {
+    if (!this.formData.name || !this.formData.email || !this.formData.message) {
+      this.formMessage = {
+        type: 'error',
+        text: 'Please fill in all required fields.'
+      };
+      return;
+    }
 
     this.isSubmitting = true;
-    this.submitMessage = '';
-
-    // Simulate form submission
+    
+    // Simulate form submission (replace with actual API call)
     setTimeout(() => {
-      this.isSubmitting = false;
-      this.submitSuccess = true;
-      this.submitMessage = 'Thank you for your message! I\'ll get back to you soon.';
+      this.formMessage = {
+        type: 'success',
+        text: 'Thank you for your message! I\'ll get back to you soon.'
+      };
       
       // Reset form
       this.formData = {
@@ -134,10 +138,12 @@ export class AppComponent {
         subject: '',
         message: ''
       };
-
+      
+      this.isSubmitting = false;
+      
       // Clear message after 5 seconds
       setTimeout(() => {
-        this.submitMessage = '';
+        this.formMessage = null;
       }, 5000);
     }, 2000);
   }
