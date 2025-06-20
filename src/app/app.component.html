@@ -4,7 +4,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="text-xl font-bold text-green-400">Steven Kingoro</div>
-        
+
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8">
           <a href="#home" class="hover:text-green-400 transition-colors">Home</a>
@@ -53,7 +53,7 @@
             Based in Nairobi, Kenya. I create beautiful, functional web applications 
             and craft custom wooden furniture with the same attention to detail.
           </p>
-          
+
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="#contact" 
                class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium transition-colors text-center">
@@ -89,7 +89,7 @@
   <section id="about" class="py-16 bg-gray-800">
     <div class="max-w-7xl mx-auto px-4">
       <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">About Me</h2>
-      
+
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <h3 class="text-2xl font-semibold mb-6 text-green-400">My Journey</h3>
@@ -103,7 +103,7 @@
             cutting-edge technologies while maintaining a focus on user experience and clean, 
             maintainable code.
           </p>
-          
+
           <div class="grid grid-cols-2 gap-4">
             <div class="text-center p-4 bg-gray-700 rounded-lg">
               <div class="text-2xl font-bold text-green-400">3+</div>
@@ -140,7 +140,7 @@
   <section id="projects" class="py-16">
     <div class="max-w-7xl mx-auto px-4">
       <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">My Projects</h2>
-      
+
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div *ngFor="let project of projects" 
              class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
@@ -163,11 +163,11 @@
               </div>
             </div>
           </div>
-          
+
           <div class="p-6">
             <h3 class="text-xl font-semibold mb-2 text-green-400">{{ project.title }}</h3>
             <p class="text-gray-300 mb-4">{{ project.description }}</p>
-            
+
             <div class="flex flex-wrap gap-2">
               <span *ngFor="let tech of project.technologies" 
                     class="px-3 py-1 bg-gray-700 text-green-400 text-sm rounded-full">
@@ -184,7 +184,7 @@
   <section id="contact" class="py-16 bg-gray-800">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">Get In Touch</h2>
-      
+
       <div class="grid lg:grid-cols-2 gap-12">
         <!-- Contact Info -->
         <div>
@@ -193,7 +193,7 @@
             I'm always interested in new opportunities and exciting projects. 
             Whether you need a web application or custom furniture, let's discuss how we can work together.
           </p>
-          
+
           <div class="space-y-4">
             <div class="flex items-center space-x-4">
               <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
@@ -209,7 +209,7 @@
                 </a>
               </div>
             </div>
-            
+
             <div class="flex items-center space-x-4">
               <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
                 <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -223,7 +223,7 @@
                 </a>
               </div>
             </div>
-            
+
             <div class="flex items-center space-x-4">
               <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
                 <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -236,7 +236,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Social Links -->
           <div class="flex space-x-4 mt-8">
             <a href="https://www.linkedin.com/in/steven-kingoro-658472350" 
@@ -269,7 +269,7 @@
                      class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white placeholder-gray-400"
                      placeholder="Your full name">
             </div>
-            
+
             <div>
               <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
               <input type="email" 
@@ -280,7 +280,7 @@
                      class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white placeholder-gray-400"
                      placeholder="your.email@example.com">
             </div>
-            
+
             <div>
               <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
               <input type="text" 
@@ -290,7 +290,7 @@
                      class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white placeholder-gray-400"
                      placeholder="What's this about?">
             </div>
-            
+
             <div>
               <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
               <textarea id="message" 
@@ -301,7 +301,7 @@
                         class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white placeholder-gray-400 resize-none"
                         placeholder="Tell me about your project or idea..."></textarea>
             </div>
-            
+
             <button type="submit" 
                     [disabled]="!contactForm.form.valid || isSubmitting"
                     class="w-full bg-green-500 hover:bg-green-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors">
@@ -315,7 +315,7 @@
               </span>
             </button>
           </form>
-          
+
           <!-- Success/Error Messages -->
           <div *ngIf="submitMessage" 
                class="mt-4 p-4 rounded-lg"
@@ -337,194 +337,3 @@
     </div>
   </footer>
 </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-</head>
-<body class="bg-gray-900 text-white">
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center py-4">
-        <div class="text-xl font-bold text-blue-400">Steven Kingoro</div>
-        
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
-          <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-          <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
-          <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
-          <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
-        </div>
-
-        <!-- Mobile menu button -->
-        <button (click)="toggleMobileMenu()" class="md:hidden">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Navigation -->
-      <div *ngIf="mobileMenuOpen" class="md:hidden py-4 border-t border-gray-800">
-        <div class="flex flex-col space-y-4">
-          <a href="#home" (click)="closeMobileMenu()" class="hover:text-blue-400 transition-colors">Home</a>
-          <a href="#about" (click)="closeMobileMenu()" class="hover:text-blue-400 transition-colors">About</a>
-          <a href="#skills" (click)="closeMobileMenu()" class="hover:text-blue-400 transition-colors">Skills</a>
-          <a href="#projects" (click)="closeMobileMenu()" class="hover:text-blue-400 transition-colors">Projects</a>
-          <a href="#contact" (click)="closeMobileMenu()" class="hover:text-blue-400 transition-colors">Contact</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center pt-16">
-    <div class="text-center">
-      <h1 class="text-5xl md:text-7xl font-bold mb-6">
-        Hi, I'm <span class="text-blue-400">Steven</span>
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-300 mb-8">Full Stack Developer & Craftsman</p>
-      <div class="space-x-4">
-        <a href="#projects" class="bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-lg transition-colors">
-          View My Work
-        </a>
-        <a href="#contact" class="border border-blue-500 hover:bg-blue-500 px-8 py-3 rounded-lg transition-colors">
-          Contact Me
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4">About Me</h2>
-        <p class="text-gray-300 max-w-3xl mx-auto">
-          I'm a passionate full-stack developer with expertise in modern web technologies. 
-          I love creating beautiful, functional applications and also enjoy woodworking in my spare time.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4">Skills</h2>
-        <p class="text-gray-300">Technologies I work with</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div *ngFor="let skill of skills" class="bg-gray-800 p-6 rounded-lg">
-          <div class="flex justify-between items-center mb-2">
-            <h3 class="text-lg font-semibold">{{ skill.name }}</h3>
-            <span class="text-blue-400">{{ skill.level }}%</span>
-          </div>
-          <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-blue-500 h-2 rounded-full transition-all duration-1000" 
-                 [style.width.%]="skill.level"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4">Projects</h2>
-        <p class="text-gray-300">Some of my recent work</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div *ngFor="let project of projects" class="bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-          <img [src]="project.image" [alt]="project.title" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
-            <p class="text-gray-300 mb-4">{{ project.description }}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span *ngFor="let tech of project.technologies" 
-                    class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-sm">
-                {{ tech }}
-              </span>
-            </div>
-            <div class="flex space-x-4">
-              <a [href]="project.liveUrl" class="text-blue-400 hover:text-blue-300">Live Demo</a>
-              <a [href]="project.githubUrl" class="text-blue-400 hover:text-blue-300">GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
-        <p class="text-gray-300">Let's work together on your next project</p>
-      </div>
-      
-      <div class="max-w-2xl mx-auto">
-        <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="block text-sm font-medium mb-2">Name</label>
-              <input type="text" id="name" name="name" 
-                     [(ngModel)]="formData.name" required
-                     class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500">
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium mb-2">Email</label>
-              <input type="email" id="email" name="email" 
-                     [(ngModel)]="formData.email" required
-                     class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500">
-            </div>
-          </div>
-          
-          <div>
-            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
-            <input type="text" id="subject" name="subject" 
-                   [(ngModel)]="formData.subject" required
-                   class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500">
-          </div>
-          
-          <div>
-            <label for="message" class="block text-sm font-medium mb-2">Message</label>
-            <textarea id="message" name="message" rows="6" 
-                      [(ngModel)]="formData.message" required
-                      class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"></textarea>
-          </div>
-          
-          <div class="text-center">
-            <button type="submit" [disabled]="isSubmitting || !contactForm.form.valid"
-                    class="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 px-8 py-3 rounded-lg transition-colors">
-              <span *ngIf="!isSubmitting">Send Message</span>
-              <span *ngIf="isSubmitting">Sending...</span>
-            </button>
-          </div>
-          
-          <div *ngIf="submitMessage" class="text-center">
-            <p [class]="submitSuccess ? 'text-green-400' : 'text-red-400'">{{ submitMessage }}</p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 py-8 text-center border-t border-gray-800">
-    <p class="text-gray-400">&copy; 2024 Steven Kingoro. All rights reserved.</p>
-  </footer>
-
-  <router-outlet></router-outlet>
-</body>
-</html>
