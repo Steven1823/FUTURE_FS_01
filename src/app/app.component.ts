@@ -1,20 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-
-interface Skill {
-  name: string;
-  level: number;
-}
 
 interface Project {
   title: string;
   description: string;
   image: string;
   technologies: string[];
-  liveUrl: string;
-  githubUrl: string;
+  liveUrl?: string;
+  githubUrl?: string;
 }
 
 interface FormData {
@@ -24,19 +18,23 @@ interface FormData {
   message: string;
 }
 
+interface FormMessage {
+  type: 'success' | 'error';
+  text: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet],
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.less'
+  styleUrls: ['./app.component.less']
 })
-export class AppComponent {
-  title = 'Steven Kingoro - Portfolio';
+export class AppComponent implements OnInit {
+  title = 'Steven Kingoro Portfolio';
   mobileMenuOpen = false;
   isSubmitting = false;
-  submitMessage = '';
-  submitSuccess = false;
+  formMessage: FormMessage | null = null;
 
   formData: FormData = {
     name: '',
@@ -45,6 +43,8 @@ export class AppComponent {
     message: ''
   };
 
+<<<<<<< HEAD
+=======
   skills: Skill[] = [
     { name: 'Angular', level: 90 },
     { name: 'TypeScript', level: 85 },
@@ -58,8 +58,26 @@ export class AppComponent {
     { name: 'Woodworking', level: 85 }
   ];
 
+>>>>>>> master
   projects: Project[] = [
+    // Project Showcase - Add your own photos and descriptions
     {
+<<<<<<< HEAD
+      title: 'Project Showcase 1',
+      description: 'Add description of your first project here - could be software development or woodworking',
+      image: 'assets/shem.jpg', // Replace with your project photo
+      technologies: ['Add', 'Your', 'Technologies']
+      // liveUrl: 'https://your-live-url.com', // optional - add if it's a web project
+      // githubUrl: 'https://github.com/your-repo' // optional - add if it's a code project
+    },
+    {
+      title: 'Project Showcase 2', 
+      description: 'Add description of your second project here - could be software development or woodworking',
+      image: 'assets/shem.jpg', // Replace with your project photo
+      technologies: ['Add', 'Your', 'Technologies']
+      // liveUrl: 'https://your-live-url.com', // optional - add if it's a web project
+      // githubUrl: 'https://github.com/your-repo' // optional - add if it's a code project
+=======
       title: 'AI-Powered Task Manager',
       description: 'An intelligent task management application with AI-driven priority suggestions and automated scheduling.',
       image: '/assets/s1.jpg',
@@ -106,29 +124,53 @@ export class AppComponent {
       technologies: ['Angular', 'TypeScript', 'Tailwind CSS'],
       liveUrl: '#',
       githubUrl: '#'
+>>>>>>> master
     }
   ];
 
-  toggleMobileMenu(): void {
+  ngOnInit() {
+    // Load Font Awesome
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(link);
+  }
+
+  toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
-  closeMobileMenu(): void {
+  scrollTo(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const offset = 80; // Account for fixed navbar
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
     this.mobileMenuOpen = false;
   }
 
-  onSubmit(): void {
-    if (this.isSubmitting) return;
+  onSubmit() {
+    if (!this.formData.name || !this.formData.email || !this.formData.message) {
+      this.formMessage = {
+        type: 'error',
+        text: 'Please fill in all required fields.'
+      };
+      return;
+    }
 
     this.isSubmitting = true;
-    this.submitMessage = '';
 
-    // Simulate form submission
+    // Simulate form submission (replace with actual API call)
     setTimeout(() => {
-      this.isSubmitting = false;
-      this.submitSuccess = true;
-      this.submitMessage = 'Thank you for your message! I\'ll get back to you soon.';
-      
+      this.formMessage = {
+        type: 'success',
+        text: 'Thank you for your message! I\'ll get back to you soon.'
+      };
+
       // Reset form
       this.formData = {
         name: '',
@@ -137,9 +179,11 @@ export class AppComponent {
         message: ''
       };
 
+      this.isSubmitting = false;
+
       // Clear message after 5 seconds
       setTimeout(() => {
-        this.submitMessage = '';
+        this.formMessage = null;
       }, 5000);
     }, 2000);
   }
