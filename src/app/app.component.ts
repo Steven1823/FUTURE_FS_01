@@ -45,43 +45,44 @@ export class AppComponent implements OnInit {
 
   projects: Project[] = [
     {
+      title: 'AI-Powered Portfolio Website',
+      description: 'Interactive portfolio website built with Angular and Tailwind CSS. Features AI-enhanced user experience and modern responsive design.',
+      image: 'assets/s1.jpg',
+      technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'AI Integration'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Intelligent Web Application',
+      description: 'Full-stack web application with PHP backend, MySQL database, and AI features. Includes machine learning capabilities for data insights.',
+      image: 'assets/s2.jpg',
+      technologies: ['PHP', 'MySQL', 'JavaScript', 'Machine Learning', 'AI'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'AI Database Analytics',
+      description: 'Advanced database system with AI-powered analytics and predictive modeling for portfolio management and data insights.',
+      image: 'assets/s3.jpg',
+      technologies: ['MySQL', 'PHP', 'AI Analytics', 'Machine Learning', 'Data Science'],
+      githubUrl: '#'
+    },
+    {
+      title: 'Software Development Tools',
+      description: 'Custom development tools and utilities for streamlining software development workflows and improving productivity.',
+      image: 'assets/s1.jpg',
+      technologies: ['Node.js', 'TypeScript', 'API Development', 'Automation'],
+      githubUrl: '#'
+    },
+    {
       title: 'Custom Wooden Table',
       description: 'Handcrafted wooden table with premium finish and modern design. Built with attention to detail and quality materials.',
       image: 'assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
       technologies: ['Woodworking', 'Design', 'Craftsmanship']
     },
     {
-      title: 'Wooden Cabinet',
-      description: 'Custom storage solution with elegant design. Perfect blend of functionality and aesthetics.',
-      image: 'assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
-      technologies: ['Woodworking', 'Storage Design', 'Custom Build']
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'Interactive portfolio website built with Angular and Tailwind CSS. Fully responsive and modern design.',
-      image: 'assets/s1.jpg',
-      technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'HTML5'],
-      liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'Web Application',
-      description: 'Full-stack web application with PHP backend and MySQL database. Features user authentication and data management.',
-      image: 'assets/s2.jpg',
-      technologies: ['PHP', 'MySQL', 'JavaScript', 'CSS3'],
-      liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'Database Project',
-      description: 'Complex database design and implementation for portfolio management system.',
-      image: 'assets/s3.jpg',
-      technologies: ['MySQL', 'PHP', 'Database Design', 'SQL'],
-      githubUrl: '#'
-    },
-    {
       title: 'Professional Woodwork',
-      description: 'High-quality wooden furniture piece with intricate details and professional finish.',
+      description: 'High-quality wooden furniture piece with intricate details and professional finish. Creative outlet alongside software development.',
       image: 'assets/shem.jpg',
       technologies: ['Advanced Woodworking', 'Furniture Design', 'Professional Finish']
     }
