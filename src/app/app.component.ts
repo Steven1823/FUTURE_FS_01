@@ -49,15 +49,17 @@ export class AppComponent {
 
   skills: Skill[] = [
     { name: 'Angular', level: 90 },
-    { name: 'TypeScript', level: 85 },
+    { name: 'React', level: 85 },
     { name: 'JavaScript', level: 90 },
+    { name: 'TypeScript', level: 85 },
     { name: 'Python', level: 80 },
-    { name: 'AI/Machine Learning', level: 75 },
     { name: 'Node.js', level: 80 },
     { name: 'HTML/CSS', level: 95 },
     { name: 'SQL', level: 80 },
     { name: 'Git', level: 85 },
-    { name: 'Woodworking', level: 85 }
+    { name: 'Woodworking', level: 85 },
+    { name: 'Joinery', level: 80 },
+    { name: 'AI/Machine Learning', level: 75 }
   ];
 
   projects: Project[] = [
@@ -83,7 +85,7 @@ export class AppComponent {
       title: 'Side Bed',
       description: 'Custom-designed wooden side bed with modern aesthetics, featuring clean lines and premium wood finish.',
       image: '/assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
-      technologies: ['Woodworking', 'Design', 'Craftsmanship'],
+      technologies: ['Woodworking', 'Joinery', 'Design', 'Craftsmanship'],
       liveUrl: '#',
       githubUrl: '#',
       category: 'carpentry'
@@ -92,7 +94,7 @@ export class AppComponent {
       title: 'Winker Stand',
       description: 'Elegant wooden winker stand with adjustable features and smooth finish, perfect for modern home decor.',
       image: '/assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
-      technologies: ['Woodworking', 'Design', 'Hardware'],
+      technologies: ['Woodworking', 'Joinery', 'Design', 'Hardware'],
       liveUrl: '#',
       githubUrl: '#',
       category: 'carpentry'
@@ -110,7 +112,7 @@ export class AppComponent {
       linkedin: 'https://www.linkedin.com/in/steven-kingoro-658472350',
       github: 'https://github.com/stevekingoro'
     },
-    summary: 'Passionate software developer and AI enthusiast with a unique blend of technical expertise and traditional craftsmanship. Experienced in building modern web applications and exploring cutting-edge AI technologies, while maintaining a love for woodworking that keeps me grounded in the art of creating with my hands.',
+    summary: 'Passionate software developer and AI enthusiast with a unique blend of technical expertise and traditional craftsmanship. Experienced in building modern web applications using Angular, React, and other cutting-edge technologies, while exploring AI/ML solutions. My love for woodworking and joinery keeps me grounded in the art of creating with my hands.',
     experience: [
       {
         title: 'Full-Stack Developer',
@@ -146,9 +148,9 @@ export class AppComponent {
       }
     ],
     skills: {
-      technical: ['Angular', 'TypeScript', 'JavaScript', 'Python', 'Node.js', 'HTML/CSS', 'SQL', 'Git', 'AI/ML'],
+      technical: ['Angular', 'React', 'TypeScript', 'JavaScript', 'Python', 'Node.js', 'HTML/CSS', 'SQL', 'Git', 'AI/ML'],
       tools: ['VS Code', 'Git', 'Docker', 'AWS', 'Firebase', 'Figma'],
-      craftsmanship: ['Woodworking', 'Furniture Design', 'Hand Tools', 'Power Tools', 'Finishing Techniques']
+      craftsmanship: ['Woodworking', 'Joinery', 'Furniture Design', 'Hand Tools', 'Power Tools', 'Finishing Techniques']
     },
     projects: [
       {
