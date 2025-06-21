@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { EmailService } from './services/email.service';
 
 interface Skill {
   name: string;
@@ -46,6 +47,8 @@ export class AppComponent {
     subject: '',
     message: ''
   };
+
+  constructor(private emailService: EmailService) {}
 
   skills: Skill[] = [
     { name: 'Angular', level: 90 },
@@ -209,14 +212,26 @@ export class AppComponent {
     link.click();
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     if (this.isSubmitting) return;
+
+    // Validate form
+    if (!this.formData.name || !this.formData.email || !this.formData.message) {
+      this.submitSuccess = false;
+      this.submitMessage = 'Please fill in all required fields.';
+      setTimeout(() => {
+        this.submitMessage = '';
+      }, 5000);
+      return;
+    }
 
     this.isSubmitting = true;
     this.submitMessage = '';
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email using EmailJS
+      await this.emailService.sendEmail(this.formData);
+      
       this.isSubmitting = false;
       this.submitSuccess = true;
       this.submitMessage = 'Thank you for your message! I\'ll get back to you soon.';
@@ -233,6 +248,16 @@ export class AppComponent {
       setTimeout(() => {
         this.submitMessage = '';
       }, 5000);
-    }, 2000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      this.isSubmitting = false;
+      this.submitSuccess = false;
+      this.submitMessage = 'Sorry, there was an error sending your message. Please try again or contact me directly at stevekingoro@gmail.com';
+      
+      // Clear message after 8 seconds for error messages
+      setTimeout(() => {
+        this.submitMessage = '';
+      }, 8000);
+    }
   }
 }
