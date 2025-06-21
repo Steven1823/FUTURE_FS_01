@@ -5,9 +5,9 @@ import emailjs from '@emailjs/browser';
   providedIn: 'root'
 })
 export class EmailService {
-  private serviceId = 'YOUR_SERVICE_ID'; // You'll need to replace this
-  private templateId = 'YOUR_TEMPLATE_ID'; // You'll need to replace this
-  private publicKey = 'YOUR_PUBLIC_KEY'; // You'll need to replace this
+  private serviceId = 'service_4sewchd';
+  private templateId = 'template_rt06ka8';
+  private publicKey = 'QWlYlkFKIPqHLBQeU';
 
   constructor() {
     // Initialize EmailJS with your public key
@@ -21,7 +21,7 @@ export class EmailService {
         from_email: formData.email,
         subject: formData.subject || 'New Contact Form Message',
         message: formData.message,
-        to_email: 'stevekingoro@gmail.com' // Your email
+        to_email: 'stevekingoro@gmail.com'
       };
 
       const response = await emailjs.send(
@@ -30,8 +30,10 @@ export class EmailService {
         templateParams
       );
 
+      console.log('Email sent successfully:', response);
       return response;
     } catch (error) {
+      console.error('Email sending failed:', error);
       throw error;
     }
   }
