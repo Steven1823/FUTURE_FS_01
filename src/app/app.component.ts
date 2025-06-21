@@ -69,7 +69,7 @@ export class AppComponent {
       image: '/assets/download.JPG',
       technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'LESS'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/Steven1823',
       category: 'software'
     },
     {
@@ -78,7 +78,7 @@ export class AppComponent {
       image: '/assets/s3.jpg',
       technologies: ['JavaScript', 'Weather API', 'Chart.js', 'CSS3'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/Steven1823',
       category: 'software'
     },
     {
@@ -110,7 +110,7 @@ export class AppComponent {
       phone: '+254 768 388 357',
       location: 'Nairobi, Kenya',
       linkedin: 'https://www.linkedin.com/in/steven-kingoro-658472350',
-      github: 'https://github.com/stevekingoro'
+      github: 'https://github.com/Steven1823'
     },
     summary: 'Passionate software developer and AI enthusiast with a unique blend of technical expertise and traditional craftsmanship. Experienced in building modern web applications using Angular, React, and other cutting-edge technologies, while exploring AI/ML solutions. My love for woodworking and joinery keeps me grounded in the art of creating with my hands.',
     experience: [
