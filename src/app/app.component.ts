@@ -121,6 +121,7 @@ export class AppComponent {
         location: 'Kenya'
       }
     ],
+    experience: [],
     certifications: [
       {
         name: 'Career Essentials in Software Development',
@@ -146,7 +147,8 @@ export class AppComponent {
     skills: {
       technical: ['Full-Stack Development', 'AI Development', 'Python Development', 'JavaScript', 'Angular', 'React', 'HTML/CSS', 'SQL'],
       soft: ['Leadership & Teamwork', 'Strong English Communication', 'Problem Solving', 'Creative Thinking'],
-      craftsmanship: ['Woodworking', 'Furniture Design', 'Joinery', 'Hand Tools', 'Power Tools', 'Finishing Techniques']
+      craftsmanship: ['Woodworking', 'Furniture Design', 'Joinery', 'Hand Tools', 'Power Tools', 'Finishing Techniques'],
+      tools: []
     },
     volunteer: [
       {
