@@ -59,11 +59,11 @@
                class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium transition-colors text-center">
               Get In Touch
             </a>
-            <a href="/assets/Steven_Kingoro_CV.pdf" 
-               download
+            <button 
+               (click)="openCVModal()"
                class="border border-green-500 text-green-500 hover:bg-green-500 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors text-center">
-              Download CV
-            </a>
+              View CV Online
+            </button>
           </div>
         </div>
 
@@ -143,38 +143,76 @@
     <div class="max-w-7xl mx-auto px-4">
       <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">My Projects</h2>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div *ngFor="let project of projects" 
-             class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-          <div class="relative overflow-hidden">
-            <img [src]="project.image" 
-                 [alt]="project.title"
-                 class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
-            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <div class="flex space-x-4">
-                <a [href]="project.liveUrl" 
-                   target="_blank"
-                   class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
-                  View Live
-                </a>
-                <a [href]="project.githubUrl" 
-                   target="_blank"
-                   class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors">
-                  GitHub
-                </a>
+      <!-- Software Projects -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold mb-8 text-green-400">Software Development</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div *ngFor="let project of projects | slice:0:2" 
+               class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <div class="relative overflow-hidden">
+              <img [src]="project.image" 
+                   [alt]="project.title"
+                   class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+              <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div class="flex space-x-4">
+                  <a [href]="project.liveUrl" 
+                     target="_blank"
+                     class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
+                    View Live
+                  </a>
+                  <a [href]="project.githubUrl" 
+                     target="_blank"
+                     class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors">
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="p-6">
+              <h4 class="text-xl font-semibold mb-2 text-green-400">{{ project.title }}</h4>
+              <p class="text-gray-300 mb-4">{{ project.description }}</p>
+              
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let tech of project.technologies" 
+                      class="px-3 py-1 bg-gray-700 text-green-400 text-sm rounded-full">
+                  {{ tech }}
+                </span>
               </div>
             </div>
           </div>
-          
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-green-400">{{ project.title }}</h3>
-            <p class="text-gray-300 mb-4">{{ project.description }}</p>
+        </div>
+      </div>
+
+      <!-- Carpentry Projects -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-8 text-green-400">Woodworking & Carpentry</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div *ngFor="let project of projects | slice:2:4" 
+               class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <div class="relative overflow-hidden">
+              <img [src]="project.image" 
+                   [alt]="project.title"
+                   class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+              <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div class="text-center">
+                  <span class="bg-green-500 text-white px-4 py-2 rounded-lg">
+                    Custom Crafted
+                  </span>
+                </div>
+              </div>
+            </div>
             
-            <div class="flex flex-wrap gap-2">
-              <span *ngFor="let tech of project.technologies" 
-                    class="px-3 py-1 bg-gray-700 text-green-400 text-sm rounded-full">
-                {{ tech }}
-              </span>
+            <div class="p-6">
+              <h4 class="text-xl font-semibold mb-2 text-green-400">{{ project.title }}</h4>
+              <p class="text-gray-300 mb-4">{{ project.description }}</p>
+              
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let tech of project.technologies" 
+                      class="px-3 py-1 bg-gray-700 text-green-400 text-sm rounded-full">
+                  {{ tech }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -338,4 +376,126 @@
       </p>
     </div>
   </footer>
+
+  <!-- CV Modal -->
+  <div *ngIf="showCVModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white text-gray-900 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <!-- Modal Header -->
+      <div class="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center">
+        <h2 class="text-2xl font-bold text-gray-900">Curriculum Vitae</h2>
+        <div class="flex space-x-2">
+          <button 
+            (click)="downloadCV()"
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
+            Download PDF
+          </button>
+          <button 
+            (click)="closeCVModal()"
+            class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors">
+            Close
+          </button>
+        </div>
+      </div>
+
+      <!-- CV Content -->
+      <div class="p-6">
+        <!-- Personal Info -->
+        <div class="text-center mb-8">
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ cvData.personalInfo.name }}</h1>
+          <p class="text-xl text-gray-600 mb-4">{{ cvData.personalInfo.title }}</p>
+          <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+            <span>📧 {{ cvData.personalInfo.email }}</span>
+            <span>📱 {{ cvData.personalInfo.phone }}</span>
+            <span>📍 {{ cvData.personalInfo.location }}</span>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-green-500 pb-2">Professional Summary</h2>
+          <p class="text-gray-700 leading-relaxed">{{ cvData.summary }}</p>
+        </div>
+
+        <!-- Experience -->
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-green-500 pb-2">Work Experience</h2>
+          <div *ngFor="let exp of cvData.experience" class="mb-6">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">{{ exp.title }}</h3>
+                <p class="text-gray-600">{{ exp.company }} • {{ exp.location }}</p>
+              </div>
+              <span class="text-sm text-gray-500">{{ exp.period }}</span>
+            </div>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li *ngFor="let responsibility of exp.responsibilities">{{ responsibility }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-green-500 pb-2">Education</h2>
+          <div *ngFor="let edu of cvData.education" class="mb-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">{{ edu.degree }}</h3>
+                <p class="text-gray-600">{{ edu.institution }} • {{ edu.location }}</p>
+              </div>
+              <span class="text-sm text-gray-500">{{ edu.period }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-green-500 pb-2">Skills</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Technical Skills</h3>
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let skill of cvData.skills.technical" 
+                      class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Tools & Platforms</h3>
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let tool of cvData.skills.tools" 
+                      class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
+                  {{ tool }}
+                </span>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Craftsmanship</h3>
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let craft of cvData.skills.craftsmanship" 
+                      class="px-3 py-1 bg-amber-100 text-amber-800 text-sm rounded-full">
+                  {{ craft }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-green-500 pb-2">Key Projects</h2>
+          <div *ngFor="let project of cvData.projects" class="mb-4">
+            <h3 class="text-lg font-semibold text-gray-900">{{ project.name }}</h3>
+            <p class="text-gray-700 mb-2">{{ project.description }}</p>
+            <div class="flex flex-wrap gap-2">
+              <span *ngFor="let tech of project.technologies" 
+                    class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -15,6 +15,7 @@ interface Project {
   technologies: string[];
   liveUrl: string;
   githubUrl: string;
+  category: 'software' | 'carpentry';
 }
 
 interface FormData {
@@ -37,6 +38,7 @@ export class AppComponent {
   isSubmitting = false;
   submitMessage = '';
   submitSuccess = false;
+  showCVModal = false;
 
   formData: FormData = {
     name: '',
@@ -60,54 +62,107 @@ export class AppComponent {
 
   projects: Project[] = [
     {
-      title: 'AI-Powered Task Manager',
-      description: 'An intelligent task management application with AI-driven priority suggestions and automated scheduling.',
-      image: '/assets/s1.jpg',
-      technologies: ['Angular', 'Python', 'TensorFlow', 'Node.js'],
+      title: 'Portfolio Website',
+      description: 'A modern, responsive portfolio website built with Angular and Tailwind CSS, showcasing my professional work and skills.',
+      image: '/assets/download.JPG',
+      technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'LESS'],
       liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with payment integration, user authentication, and admin dashboard.',
-      image: '/assets/s2.jpg',
-      technologies: ['Angular', 'Node.js', 'MongoDB', 'Stripe'],
-      liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'Custom Wooden Table',
-      description: 'Handcrafted dining table made from reclaimed oak with modern steel legs and natural finish.',
-      image: '/assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
-      technologies: ['Woodworking', 'Design', 'Craftsmanship'],
-      liveUrl: '#',
-      githubUrl: '#'
+      githubUrl: '#',
+      category: 'software'
     },
     {
       title: 'Weather Dashboard',
-      description: 'A responsive weather dashboard with location-based forecasts and interactive charts.',
+      description: 'An interactive weather dashboard providing real-time weather data, forecasts, and location-based weather information.',
       image: '/assets/s3.jpg',
-      technologies: ['Vue.js', 'Chart.js', 'Weather API'],
+      technologies: ['JavaScript', 'Weather API', 'Chart.js', 'CSS3'],
       liveUrl: '#',
-      githubUrl: '#'
+      githubUrl: '#',
+      category: 'software'
     },
     {
-      title: 'Wooden Cabinet',
-      description: 'Custom storage cabinet with adjustable shelves and soft-close hinges, perfect for modern homes.',
+      title: 'Side Bed',
+      description: 'Custom-designed wooden side bed with modern aesthetics, featuring clean lines and premium wood finish.',
+      image: '/assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
+      technologies: ['Woodworking', 'Design', 'Craftsmanship'],
+      liveUrl: '#',
+      githubUrl: '#',
+      category: 'carpentry'
+    },
+    {
+      title: 'Winker Stand',
+      description: 'Elegant wooden winker stand with adjustable features and smooth finish, perfect for modern home decor.',
       image: '/assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
       technologies: ['Woodworking', 'Design', 'Hardware'],
       liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'This very portfolio website built with Angular and Tailwind CSS, featuring smooth animations.',
-      image: '/assets/download.JPG',
-      technologies: ['Angular', 'TypeScript', 'Tailwind CSS'],
-      liveUrl: '#',
-      githubUrl: '#'
+      githubUrl: '#',
+      category: 'carpentry'
     }
   ];
+
+  // CV Data
+  cvData = {
+    personalInfo: {
+      name: 'Steven Kingoro Wanjala',
+      title: 'Software Developer & Woodworking Craftsman',
+      email: 'stevekingoro@gmail.com',
+      phone: '+254 768 388 357',
+      location: 'Nairobi, Kenya',
+      linkedin: 'https://www.linkedin.com/in/steven-kingoro-658472350',
+      github: 'https://github.com/stevekingoro'
+    },
+    summary: 'Passionate software developer and AI enthusiast with a unique blend of technical expertise and traditional craftsmanship. Experienced in building modern web applications and exploring cutting-edge AI technologies, while maintaining a love for woodworking that keeps me grounded in the art of creating with my hands.',
+    experience: [
+      {
+        title: 'Full-Stack Developer',
+        company: 'Freelance',
+        period: '2022 - Present',
+        location: 'Nairobi, Kenya',
+        responsibilities: [
+          'Developed responsive web applications using Angular, React, and Vue.js',
+          'Built RESTful APIs using Node.js and Python',
+          'Implemented AI/ML solutions for various client projects',
+          'Collaborated with clients to deliver custom software solutions'
+        ]
+      },
+      {
+        title: 'Software Developer',
+        company: 'Tech Solutions Ltd',
+        period: '2021 - 2022',
+        location: 'Nairobi, Kenya',
+        responsibilities: [
+          'Developed and maintained web applications using modern frameworks',
+          'Participated in code reviews and agile development processes',
+          'Optimized application performance and user experience',
+          'Mentored junior developers on best practices'
+        ]
+      }
+    ],
+    education: [
+      {
+        degree: 'Bachelor of Science in Computer Science',
+        institution: 'University of Nairobi',
+        period: '2018 - 2022',
+        location: 'Nairobi, Kenya'
+      }
+    ],
+    skills: {
+      technical: ['Angular', 'TypeScript', 'JavaScript', 'Python', 'Node.js', 'HTML/CSS', 'SQL', 'Git', 'AI/ML'],
+      tools: ['VS Code', 'Git', 'Docker', 'AWS', 'Firebase', 'Figma'],
+      craftsmanship: ['Woodworking', 'Furniture Design', 'Hand Tools', 'Power Tools', 'Finishing Techniques']
+    },
+    projects: [
+      {
+        name: 'Portfolio Website',
+        description: 'Modern responsive portfolio built with Angular and Tailwind CSS',
+        technologies: ['Angular', 'TypeScript', 'Tailwind CSS']
+      },
+      {
+        name: 'Weather Dashboard',
+        description: 'Interactive weather application with real-time data and forecasts',
+        technologies: ['JavaScript', 'Weather API', 'Chart.js']
+      }
+    ]
+  };
 
   toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -115,6 +170,24 @@ export class AppComponent {
 
   closeMobileMenu(): void {
     this.mobileMenuOpen = false;
+  }
+
+  openCVModal(): void {
+    this.showCVModal = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeCVModal(): void {
+    this.showCVModal = false;
+    document.body.style.overflow = 'auto';
+  }
+
+  downloadCV(): void {
+    // Create a link element and trigger download
+    const link = document.createElement('a');
+    link.href = '/assets/Steven_Kingoro_CV.pdf';
+    link.download = 'Steven_Kingoro_CV.pdf';
+    link.click();
   }
 
   onSubmit(): void {
