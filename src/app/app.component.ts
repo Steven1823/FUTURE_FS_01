@@ -101,67 +101,82 @@ export class AppComponent {
     }
   ];
 
-  // CV Data
+  // CV Data - Updated with correct information
   cvData = {
     personalInfo: {
-      name: 'Steven Kingoro Wanjala',
+      name: 'Steven Kingoro',
       title: 'Software Developer & Woodworking Craftsman',
       email: 'stevekingoro@gmail.com',
-      phone: '+254 768 388 357',
+      phone: '+254 768 558 357',
       location: 'Nairobi, Kenya',
       linkedin: 'https://www.linkedin.com/in/steven-kingoro-658472350',
       github: 'https://github.com/Steven1823'
     },
-    summary: 'Passionate software developer and AI enthusiast with a unique blend of technical expertise and traditional craftsmanship. Experienced in building modern web applications using Angular, React, and other cutting-edge technologies, while exploring AI/ML solutions. My love for woodworking and joinery keeps me grounded in the art of creating with my hands.',
-    experience: [
-      {
-        title: 'Full-Stack Developer',
-        company: 'Freelance',
-        period: '2022 - Present',
-        location: 'Nairobi, Kenya',
-        responsibilities: [
-          'Developed responsive web applications using Angular, React, and Vue.js',
-          'Built RESTful APIs using Node.js and Python',
-          'Implemented AI/ML solutions for various client projects',
-          'Collaborated with clients to deliver custom software solutions'
-        ]
-      },
-      {
-        title: 'Software Developer',
-        company: 'Tech Solutions Ltd',
-        period: '2021 - 2022',
-        location: 'Nairobi, Kenya',
-        responsibilities: [
-          'Developed and maintained web applications using modern frameworks',
-          'Participated in code reviews and agile development processes',
-          'Optimized application performance and user experience',
-          'Mentored junior developers on best practices'
-        ]
-      }
-    ],
+    summary: 'Passionate and multi-skilled individual with a strong foundation in software development. Specializing in full-stack development, AI development, and woodworking, I integrate craftsmanship and technology to develop practical, creative solutions—both physical and digital. Proven experience through hands-on projects in software development and training within tech and creative industries.',
     education: [
       {
-        degree: 'Bachelor of Science in Computer Science',
-        institution: 'University of Nairobi',
-        period: '2018 - 2022',
-        location: 'Nairobi, Kenya'
+        degree: 'High School Diploma',
+        institution: 'Tambach High School',
+        period: 'Completed',
+        location: 'Kenya'
+      }
+    ],
+    certifications: [
+      {
+        name: 'Career Essentials in Software Development',
+        issuer: 'Microsoft / LinkedIn Learning',
+        year: '2024'
+      },
+      {
+        name: 'Software Development (Artificial Intelligence)',
+        issuer: 'Power Learn Project Academy',
+        year: '2024'
+      },
+      {
+        name: 'Full-Stack Development',
+        issuer: 'Practical Experience',
+        year: '2023-2024'
+      },
+      {
+        name: 'Graphic Design Training',
+        issuer: 'Professional Training',
+        year: '2023'
       }
     ],
     skills: {
-      technical: ['Angular', 'React', 'TypeScript', 'JavaScript', 'Python', 'Node.js', 'HTML/CSS', 'SQL', 'Git', 'AI/ML'],
-      tools: ['VS Code', 'Git', 'Docker', 'AWS', 'Firebase', 'Figma'],
-      craftsmanship: ['Woodworking', 'Joinery', 'Furniture Design', 'Hand Tools', 'Power Tools', 'Finishing Techniques']
+      technical: ['Full-Stack Development', 'AI Development', 'Python Development', 'JavaScript', 'Angular', 'React', 'HTML/CSS', 'SQL'],
+      soft: ['Leadership & Teamwork', 'Strong English Communication', 'Problem Solving', 'Creative Thinking'],
+      craftsmanship: ['Woodworking', 'Furniture Design', 'Joinery', 'Hand Tools', 'Power Tools', 'Finishing Techniques']
     },
+    volunteer: [
+      {
+        organization: 'One Hope Kenya',
+        role: 'Volunteer',
+        period: 'Ongoing',
+        description: 'Contributing to community development and social impact initiatives'
+      }
+    ],
+    hobbies: ['Playing Guitar', 'Woodworking & Furniture Design', 'Technology Innovation', 'Creative Problem Solving'],
     projects: [
       {
         name: 'Portfolio Website',
-        description: 'Modern responsive portfolio built with Angular and Tailwind CSS',
+        description: 'Modern responsive portfolio built with Angular and Tailwind CSS showcasing software and carpentry projects',
         technologies: ['Angular', 'TypeScript', 'Tailwind CSS']
       },
       {
         name: 'Weather Dashboard',
-        description: 'Interactive weather application with real-time data and forecasts',
+        description: 'Interactive weather application with real-time data and forecasts using modern web technologies',
         technologies: ['JavaScript', 'Weather API', 'Chart.js']
+      },
+      {
+        name: 'Side Bed',
+        description: 'Custom-designed wooden side bed featuring modern aesthetics and precision craftsmanship',
+        technologies: ['Woodworking', 'Joinery', 'Design']
+      },
+      {
+        name: 'Winker Stand',
+        description: 'Elegant wooden winker stand with adjustable features and premium finish',
+        technologies: ['Woodworking', 'Joinery', 'Hardware']
       }
     ]
   };
