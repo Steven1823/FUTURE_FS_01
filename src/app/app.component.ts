@@ -85,6 +85,24 @@ export class AppComponent {
       category: 'software'
     },
     {
+      title: 'Modern Drawer Unit',
+      description: 'Minimalist white drawer unit featuring clean lines, smooth sliding mechanisms, and contemporary design perfect for modern spaces.',
+      image: '/assets/shem.jpg',
+      technologies: ['Woodworking', 'Furniture Design', 'Modern Aesthetics', 'Hardware Installation'],
+      liveUrl: '#',
+      githubUrl: '#',
+      category: 'carpentry'
+    },
+    {
+      title: 'Storage Unit with Wicker Baskets',
+      description: 'Elegant white storage unit with four woven wicker baskets, combining traditional craftsmanship with modern design for versatile storage solutions.',
+      image: '/assets/shem.jpg',
+      technologies: ['Woodworking', 'Furniture Design', 'Storage Solutions', 'Wicker Integration'],
+      liveUrl: '#',
+      githubUrl: '#',
+      category: 'carpentry'
+    },
+    {
       title: 'Side Bed',
       description: 'Custom-designed wooden side bed with modern aesthetics, featuring clean lines and premium wood finish.',
       image: '/assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
