@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -5,6 +9,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+<<<<<<< HEAD
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+      },
+      colors: {
+        primary: {
+          50: '#eff6ff',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+        }
+      }
+    },
+  },
+  plugins: [],
+}
+=======
       colors: {
         primary: {
           50: '#f0fdf4',
@@ -26,3 +47,4 @@ module.exports = {
   },
   plugins: [],
 }
+>>>>>>> master

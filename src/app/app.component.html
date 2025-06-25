@@ -1,41 +1,170 @@
-<div class="min-h-screen bg-gray-900 text-white">
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div class="text-xl font-bold text-green-400">Steven Kingoro</div>
-        
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="hover:text-green-400 transition-colors">Home</a>
-          <a href="#about" class="hover:text-green-400 transition-colors">About</a>
-          <a href="#projects" class="hover:text-green-400 transition-colors">Projects</a>
-          <a href="#contact" class="hover:text-green-400 transition-colors">Contact</a>
+<!-- Navigation -->
+<nav class="bg-gray-900 p-4 fixed top-0 w-full z-50 shadow-lg">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="text-xl font-bold text-white">Steven Kingoro</div>
+    <div class="hidden md:flex space-x-6">
+      <a (click)="scrollTo('home')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Home</a>
+      <a (click)="scrollTo('about')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">About</a>
+      <a (click)="scrollTo('projects')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Projects</a>
+      <a (click)="scrollTo('contact')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Contact</a>
+      <a (click)="scrollTo('contact')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer transition-colors">
+        Hire Me
+      </a>
+    </div>
+    <button (click)="toggleMobileMenu()" class="md:hidden text-white text-2xl">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div [class.hidden]="!mobileMenuOpen" class="md:hidden bg-gray-800 p-4 mt-4 rounded">
+    <div class="flex flex-col space-y-4">
+      <a (click)="scrollTo('home'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Home</a>
+      <a (click)="scrollTo('about'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">About</a>
+      <a (click)="scrollTo('projects'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Projects</a>
+      <a (click)="scrollTo('contact'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Contact</a>
+      <a (click)="scrollTo('contact'); toggleMobileMenu()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-center cursor-pointer">
+        Hire Me
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4">
+  <div class="container mx-auto flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">
+        Hi, I'm <span class="text-blue-400">Steven Kingoro</span>
+      </h1>
+      <h2 class="text-xl md:text-2xl text-gray-300 mb-6">Software Developer | AI Enthusiast | Woodworker</h2>
+      <p class="text-gray-400 mb-8 text-lg">Passionate about creating innovative solutions | Based in Nairobi, Kenya</p>
+      <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center md:justify-start">
+        <button (click)="scrollTo('contact')" class="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+          Contact Me
+        </button>
+        <a href="assets/Steven_Kingoro_CV.pdf" download class="bg-gray-700 text-white px-8 py-3 rounded-lg hover:bg-gray-600 transition-colors font-semibold text-center">
+          Download CV
+        </a>
+      </div>
+    </div>
+    <div class="md:w-1/2">
+      <div class="relative">
+        <img src="assets/shem-Photoroom.png" alt="Steven Kingoro" class="rounded-lg shadow-2xl w-full max-w-md mx-auto">
+        <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
+        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-purple-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-gray-800">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16 text-white">About Me</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h3 class="text-2xl font-semibold mb-6 text-blue-400">Software Developer | AI Enthusiast | Woodworker</h3>
+        <p class="text-gray-300 mb-6 text-lg leading-relaxed">
+          I'm a passionate software developer with expertise in modern technologies and artificial intelligence. 
+          I love creating innovative solutions that leverage cutting-edge AI technologies and building robust 
+          software applications. Beyond the digital world, I'm also a skilled woodworker, crafting custom furniture 
+          and unique pieces with the same attention to detail I bring to my code.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-gray-700 p-4 rounded-lg">
+            <h4 class="text-blue-400 font-semibold">Frontend Web Development</h4>
+            <p class="text-gray-300 text-sm">HTML, CSS, JavaScript, Angular, Responsive Design</p>
+          </div>
+          <div class="bg-gray-700 p-4 rounded-lg">
+            <h4 class="text-blue-400 font-semibold">Database Design</h4>
+            <p class="text-gray-300 text-sm">MySQL, Database Architecture, Data Modeling</p>
+          </div>
+          <div class="bg-gray-700 p-4 rounded-lg">
+            <h4 class="text-blue-400 font-semibold">Python Programming</h4>
+            <p class="text-gray-300 text-sm">Python Programming, Software Engineering Essentials</p>
+          </div>
+          <div class="bg-gray-700 p-4 rounded-lg">
+            <h4 class="text-blue-400 font-semibold">AI & Engineering</h4>
+            <p class="text-gray-300 text-sm">AI for Software Engineering, Machine Learning, AI Integration</p>
+          </div>
         </div>
 
-        <!-- Mobile menu button -->
-        <button 
-          class="md:hidden p-2"
-          (click)="toggleMobileMenu()"
-          aria-label="Toggle menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  [attr.d]="mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'">
-            </path>
-          </svg>
-        </button>
+        <!-- Additional Skills Section -->
+        <div class="mt-8 bg-gray-700 p-6 rounded-lg">
+          <h4 class="text-blue-400 font-semibold text-lg mb-4">Core Expertise</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h5 class="text-white font-medium mb-2">Technical Skills</h5>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li>• Frontend Web Development (HTML, CSS, JavaScript)</li>
+                <li>• Database Design & Architecture</li>
+                <li>• Python Programming</li>
+                <li>• AI for Software Engineering</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="text-white font-medium mb-2">Creative Skills</h5>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li>• Custom Furniture Design</li>
+                <li>• Precision Woodworking</li>
+                <li>• Handcrafted Solutions</li>
+                <li>• Attention to Detail</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="text-center">
+        <img src="assets/shem.jpg" alt="Steven at work" class="rounded-lg shadow-xl w-full max-w-sm mx-auto">
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Mobile Navigation -->
-      <div class="md:hidden" [class.hidden]="!mobileMenuOpen">
-        <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-800 rounded-lg mt-2">
-          <a href="#home" class="block px-3 py-2 hover:text-green-400 transition-colors" (click)="closeMobileMenu()">Home</a>
-          <a href="#about" class="block px-3 py-2 hover:text-green-400 transition-colors" (click)="closeMobileMenu()">About</a>
-          <a href="#projects" class="block px-3 py-2 hover:text-green-400 transition-colors" (click)="closeMobileMenu()">Projects</a>
-          <a href="#contact" class="block px-3 py-2 hover:text-green-400 transition-colors" (click)="closeMobileMenu()">Contact</a>
+<!-- Projects Section -->
+<section id="projects" class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16 text-white">My Projects</h2>
+    
+    <!-- Woodwork Introduction -->
+    <div class="mb-16 bg-gray-800 rounded-xl p-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-3xl font-bold text-blue-400 mb-4">Woodworking Showcase</h3>
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            Beyond software development, I'm passionate about woodworking - creating custom furniture and unique pieces 
+            with the same attention to detail I bring to my code. Each project combines traditional craftsmanship 
+            with modern design principles.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-medium">Custom Furniture</span>
+            <span class="bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-medium">Handcrafted</span>
+            <span class="bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-medium">Premium Finish</span>
+          </div>
+        </div>
+        <div class="text-center">
+          <img src="assets/shem.jpg" alt="Steven Kingoro - Woodworker" 
+               class="rounded-xl shadow-2xl w-full max-w-sm mx-auto hover:transform hover:scale-105 transition-transform duration-300">
+          <p class="text-gray-400 text-sm mt-4 italic">Crafting with precision and passion</p>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let project of projects" class="bg-gray-800 rounded-lg shadow-xl overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
+        <img [src]="project.image" [alt]="project.title" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3 text-white">{{project.title}}</h3>
+          <p class="text-gray-400 mb-4">{{project.description}}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span *ngFor="let tech of project.technologies" class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
+              {{tech}}
+            </span>
+          </div>
+          <div class="flex space-x-4">
+            <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" class="text-blue-400 hover:text-blue-300">
+              <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+=======
   </nav>
 
   <!-- Hero Section -->
@@ -58,7 +187,9 @@
             <a href="#contact" 
                class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium transition-colors text-center">
               Get In Touch
+>>>>>>> master
             </a>
+<<<<<<< HEAD
             <button 
                (click)="openCVModal()"
                class="border border-green-500 text-green-500 hover:bg-green-500 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors text-center">
@@ -81,15 +212,41 @@
             </div>
           </div>
         </div>
+=======
+            <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" class="text-blue-400 hover:text-blue-300">
+              <i class="fab fa-github mr-1"></i> Code
+            </a>
+          </div>
+        </div>
+>>>>>>> main
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<<<<<<< HEAD
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-white mb-4">Let's Work Together</h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        Ready to bring your project to life? Get in touch and let's discuss how I can help you achieve your goals.
+      </p>
+    </div>
+=======
   <!-- About Section -->
   <section id="about" class="py-16 bg-gray-800">
     <div class="max-w-7xl mx-auto px-4">
       <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">About Me</h2>
       
+<<<<<<< HEAD
       <div class="max-w-4xl mx-auto text-center">
         <h3 class="text-2xl font-semibold mb-6 text-green-400">My Journey</h3>
         <p class="text-gray-300 mb-6 text-lg leading-relaxed">
@@ -111,10 +268,67 @@
             View My Skills & Experience
           </button>
         </div>
+=======
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 text-green-400">My Journey</h3>
+          <p class="text-gray-300 mb-6">
+            I'm a passionate software developer and AI enthusiast with a unique blend of technical expertise 
+            and traditional craftsmanship. My journey in technology spans from building modern web applications 
+            to exploring the frontiers of artificial intelligence, while my love for woodworking keeps me 
+            grounded in the art of creating with my hands.
+          </p>
+          <p class="text-gray-300 mb-6">
+            Based in Nairobi, Kenya, I specialize in creating innovative software solutions using 
+            cutting-edge technologies. Whether it's developing intelligent applications with AI integration 
+            or crafting custom furniture pieces, I bring the same attention to detail and passion for 
+            excellence to everything I create.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center p-4 bg-gray-700 rounded-lg">
+              <div class="text-2xl font-bold text-green-400">3+</div>
+              <div class="text-sm text-gray-300">Years Experience</div>
+            </div>
+            <div class="text-center p-4 bg-gray-700 rounded-lg">
+              <div class="text-2xl font-bold text-green-400">50+</div>
+              <div class="text-sm text-gray-300">Projects Completed</div>
+            </div>
+          </div>
+        </div>
+>>>>>>> master
+
+    <!-- Success/Error Messages -->
+    <div *ngIf="formMessage" class="max-w-2xl mx-auto mb-8 p-4 rounded-lg border-l-4 shadow-lg" 
+         [class.bg-green-50]="formMessage.type === 'success'"
+         [class.text-green-800]="formMessage.type === 'success'"
+         [class.border-green-500]="formMessage.type === 'success'"
+         [class.bg-red-50]="formMessage.type === 'error'"
+         [class.text-red-800]="formMessage.type === 'error'"
+         [class.border-red-500]="formMessage.type === 'error'">
+      <div class="flex items-center">
+        <i [class]="formMessage.type === 'success' ? 'fas fa-check-circle mr-3' : 'fas fa-exclamation-triangle mr-3'"></i>
+        <p class="font-medium">{{formMessage.text}}</p>
+>>>>>>> main
       </div>
     </div>
-  </section>
 
+<<<<<<< HEAD
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Contact Info Cards -->
+        <div class="lg:col-span-1 space-y-6">
+          <!-- Email Card -->
+          <div class="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-envelope text-white text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-lg">Email Me</h3>
+                <p class="text-gray-400 text-sm">Drop me a line anytime</p>
+=======
   <!-- Projects Section -->
   <section id="projects" class="py-16">
     <div class="max-w-7xl mx-auto px-4">
@@ -158,6 +372,7 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </div>
       </div>
 
@@ -179,6 +394,13 @@
                 </div>
               </div>
             </div>
+=======
+          <img src="assets/shem-Photoroom.png" alt="Steven Kingoro" class="rounded-full w-24 h-24 border-4 border-green-400 shadow-lg mb-4 mx-auto">
+          <img src="assets/WhatsApp_Image_2025-05-15_at_13.55.33_21d36c02.jpg" alt="Steven Kingoro alternate" class="rounded-full w-24 h-24 border-4 border-green-400 shadow-lg mb-4 mx-auto">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-green-400">{{ project.title }}</h3>
+            <p class="text-gray-300 mb-4">{{ project.description }}</p>
+>>>>>>> main
             
             <div class="p-6">
               <h4 class="text-xl font-semibold mb-2 text-green-400">{{ project.title }}</h4>
@@ -250,108 +472,144 @@
               <div>
                 <div class="text-gray-300">Location</div>
                 <div class="text-green-400">Nairobi, Kenya</div>
+>>>>>>> master
               </div>
             </div>
-          </div>
-          
-          <!-- Social Links -->
-          <div class="flex space-x-4 mt-8">
-            <a href="https://www.linkedin.com/in/steven-kingoro-658472350" 
-               target="_blank"
-               class="w-12 h-12 bg-gray-700 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
-              </svg>
+            <a href="mailto:stevekingoro@gmail.com" class="text-blue-400 hover:text-blue-300 transition-colors break-all">
+              stevekingoro&#64;gmail.com
             </a>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:transform hover:scale-105">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-phone text-white text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-lg">Call Me</h3>
+                <p class="text-gray-400 text-sm">Available during business hours</p>
+              </div>
+            </div>
+            <a href="tel:254768388357" class="text-green-400 hover:text-green-300 transition-colors">
+              +254 768 388 357
+            </a>
+<<<<<<< HEAD
             <a href="https://github.com/Steven1823" 
                target="_blank"
                class="w-12 h-12 bg-gray-700 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
               </svg>
+=======
+          </div>
+
+          <!-- LinkedIn Card -->
+          <div class="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-105">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fab fa-linkedin text-white text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-lg">LinkedIn</h3>
+                <p class="text-gray-400 text-sm">Let's connect professionally</p>
+              </div>
+            </div>
+            <a href="https://www.linkedin.com/in/steven-kingoro-658472350" target="_blank" 
+               class="text-purple-400 hover:text-purple-300 transition-colors">
+              View Profile
+>>>>>>> main
             </a>
+          </div>
+
+          <!-- Location Card -->
+          <div class="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-map-marker-alt text-white text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-lg">Location</h3>
+                <p class="text-gray-400 text-sm">Based in Kenya</p>
+              </div>
+            </div>
+            <span class="text-orange-400">Nairobi, Kenya</span>
           </div>
         </div>
 
         <!-- Contact Form -->
-        <div>
-          <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="space-y-6">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
-              <input type="text" 
-                     id="name" 
-                     name="name"
-                     [(ngModel)]="formData.name"
-                     required
-                     class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white placeholder-gray-400"
-                     placeholder="Your full name">
+        <div class="lg:col-span-2">
+          <div class="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold text-white mb-2">Send Me a Message</h3>
+              <p class="text-gray-400">Fill out the form below and I'll get back to you as soon as possible.</p>
             </div>
             
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
-              <input type="email" 
-                     id="email" 
-                     name="email"
-                     [(ngModel)]="formData.email"
-                     required
-                     class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white placeholder-gray-400"
-                     placeholder="your.email@example.com">
-            </div>
-            
-            <div>
-              <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
-              <input type="text" 
-                     id="subject" 
-                     name="subject"
-                     [(ngModel)]="formData.subject"
-                     class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white placeholder-gray-400"
-                     placeholder="What's this about?">
-            </div>
-            
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-              <textarea id="message" 
-                        name="message"
-                        [(ngModel)]="formData.message"
-                        required
-                        rows="5"
-                        class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white placeholder-gray-400 resize-none"
-                        placeholder="Tell me about your project or idea..."></textarea>
-            </div>
-            
-            <button type="submit" 
-                    [disabled]="!contactForm.form.valid || isSubmitting"
-                    class="w-full bg-green-500 hover:bg-green-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors">
-              <span *ngIf="!isSubmitting">Send Message</span>
-              <span *ngIf="isSubmitting" class="flex items-center justify-center">
-                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Sending...
-              </span>
-            </button>
-          </form>
-          
-          <!-- Success/Error Messages -->
-          <div *ngIf="submitMessage" 
-               class="mt-4 p-4 rounded-lg"
-               [class.bg-green-500]="submitSuccess"
-               [class.bg-red-500]="!submitSuccess">
-            {{ submitMessage }}
+            <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="name" class="block text-gray-300 mb-2 font-medium">Full Name *</label>
+                  <input type="text" id="name" name="name" [(ngModel)]="formData.name" required 
+                         placeholder="Your full name"
+                         class="w-full px-4 py-3 bg-gray-700/50 text-white rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 placeholder-gray-400">
+                </div>
+                <div>
+                  <label for="email" class="block text-gray-300 mb-2 font-medium">Email Address *</label>
+                  <input type="email" id="email" name="email" [(ngModel)]="formData.email" required 
+                         placeholder="your.email@example.com"
+                         class="w-full px-4 py-3 bg-gray-700/50 text-white rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 placeholder-gray-400">
+                </div>
+              </div>
+              
+              <div>
+                <label for="subject" class="block text-gray-300 mb-2 font-medium">Subject</label>
+                <input type="text" id="subject" name="subject" [(ngModel)]="formData.subject" 
+                       placeholder="What's this about?"
+                       class="w-full px-4 py-3 bg-gray-700/50 text-white rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 placeholder-gray-400">
+              </div>
+              
+              <div>
+                <label for="message" class="block text-gray-300 mb-2 font-medium">Message *</label>
+                <textarea id="message" name="message" [(ngModel)]="formData.message" required rows="5" 
+                          placeholder="Tell me about your project or inquiry..."
+                          class="w-full px-4 py-3 bg-gray-700/50 text-white rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 placeholder-gray-400 resize-none"></textarea>
+              </div>
+              
+              <div class="pt-4">
+                <button type="submit" [disabled]="isSubmitting"
+                        class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 shadow-lg">
+                  <span *ngIf="!isSubmitting" class="flex items-center justify-center">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Send Message
+                  </span>
+                  <span *ngIf="isSubmitting" class="flex items-center justify-center">
+                    <i class="fas fa-spinner fa-spin mr-2"></i>
+                    Sending...
+                  </span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 py-8 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p class="text-gray-400">
-        © 2025 Steven Kingoro. Built with Angular and Tailwind CSS.
-      </p>
+<!-- Footer -->
+<footer class="bg-gray-900 py-8">
+  <div class="container mx-auto px-4 text-center">
+    <p class="text-gray-400">&copy; 2024 Steven Kingoro. All rights reserved.</p>
+    <div class="flex justify-center space-x-6 mt-4">
+      <a href="https://www.linkedin.com/in/steven-kingoro-658472350" target="_blank" 
+         class="text-gray-400 hover:text-blue-400 transition-colors">
+        <i class="fab fa-linkedin text-2xl"></i>
+      </a>
+      <a href="mailto:stevekingoro@gmail.com" class="text-gray-400 hover:text-blue-400 transition-colors">
+        <i class="fas fa-envelope text-2xl"></i>
+      </a>
     </div>
+<<<<<<< HEAD
   </footer>
 
   <!-- CV Modal -->
@@ -507,3 +765,7 @@
     </div>
   </div>
 </div>
+=======
+  </div>
+</footer>
+>>>>>>> main

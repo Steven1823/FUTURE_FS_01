@@ -41,3 +41,11 @@ testem.log
 .DS_Store
 Thumbs.db
 .env
+
+# Portfolio specific
+src/assets/database/
+src/assets/my-app/
+src/assets/portfolio/
+src/portfolio/
+*.accdb
+*.sql

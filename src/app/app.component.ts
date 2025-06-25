@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { RouterOutlet } from '@angular/router';
 import { EmailService } from './services/email.service';
 
@@ -8,15 +9,22 @@ interface Skill {
   name: string;
   level: number;
 }
+=======
+>>>>>>> main
 
 interface Project {
   title: string;
   description: string;
   image: string;
   technologies: string[];
+<<<<<<< HEAD
   liveUrl: string;
   githubUrl: string;
   category: 'software' | 'carpentry';
+=======
+  liveUrl?: string;
+  githubUrl?: string;
+>>>>>>> main
 }
 
 interface FormData {
@@ -26,20 +34,29 @@ interface FormData {
   message: string;
 }
 
+interface FormMessage {
+  type: 'success' | 'error';
+  text: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet],
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.less'
+  styleUrls: ['./app.component.less']
 })
-export class AppComponent {
-  title = 'Steven Kingoro - Portfolio';
+export class AppComponent implements OnInit {
+  title = 'Steven Kingoro Portfolio';
   mobileMenuOpen = false;
   isSubmitting = false;
+<<<<<<< HEAD
   submitMessage = '';
   submitSuccess = false;
   showCVModal = false;
+=======
+  formMessage: FormMessage | null = null;
+>>>>>>> main
 
   formData: FormData = {
     name: '',
@@ -48,8 +65,13 @@ export class AppComponent {
     message: ''
   };
 
+<<<<<<< HEAD
   constructor(private emailService: EmailService) {}
 
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> main
   skills: Skill[] = [
     { name: 'Angular', level: 90 },
     { name: 'React', level: 85 },
@@ -65,12 +87,37 @@ export class AppComponent {
     { name: 'AI/Machine Learning', level: 75 }
   ];
 
+>>>>>>> master
   projects: Project[] = [
+    // Project Showcase - Add your own photos and descriptions
     {
+<<<<<<< HEAD
       title: 'Portfolio Website',
       description: 'A modern, responsive portfolio website built with Angular and Tailwind CSS, showcasing my professional work and skills.',
       image: '/assets/download.JPG',
       technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'LESS'],
+=======
+<<<<<<< HEAD
+      title: 'Project Showcase 1',
+      description: 'Add description of your first project here - could be software development or woodworking',
+      image: 'assets/shem.jpg', // Replace with your project photo
+      technologies: ['Add', 'Your', 'Technologies']
+      // liveUrl: 'https://your-live-url.com', // optional - add if it's a web project
+      // githubUrl: 'https://github.com/your-repo' // optional - add if it's a code project
+    },
+    {
+      title: 'Project Showcase 2', 
+      description: 'Add description of your second project here - could be software development or woodworking',
+      image: 'assets/shem.jpg', // Replace with your project photo
+      technologies: ['Add', 'Your', 'Technologies']
+      // liveUrl: 'https://your-live-url.com', // optional - add if it's a web project
+      // githubUrl: 'https://github.com/your-repo' // optional - add if it's a code project
+=======
+      title: 'AI-Powered Task Manager',
+      description: 'An intelligent task management application with AI-driven priority suggestions and automated scheduling.',
+      image: '/assets/s1.jpg',
+      technologies: ['Angular', 'Python', 'TensorFlow', 'Node.js'],
+>>>>>>> main
       liveUrl: '#',
       githubUrl: 'https://github.com/Steven1823',
       category: 'software'
@@ -117,6 +164,7 @@ export class AppComponent {
       image: '/assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
       technologies: ['Woodworking', 'Joinery', 'Design', 'Hardware'],
       liveUrl: '#',
+<<<<<<< HEAD
       githubUrl: '#',
       category: 'carpentry'
     }
@@ -205,13 +253,47 @@ export class AppComponent {
   };
 
   toggleMobileMenu(): void {
+=======
+      githubUrl: '#'
+    },
+    {
+      title: 'Portfolio Website',
+      description: 'This very portfolio website built with Angular and Tailwind CSS, featuring smooth animations.',
+      image: '/assets/download.JPG',
+      technologies: ['Angular', 'TypeScript', 'Tailwind CSS'],
+      liveUrl: '#',
+      githubUrl: '#'
+>>>>>>> master
+    }
+  ];
+
+  ngOnInit() {
+    // Load Font Awesome
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(link);
+  }
+
+  toggleMobileMenu() {
+>>>>>>> main
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
-  closeMobileMenu(): void {
+  scrollTo(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const offset = 80; // Account for fixed navbar
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
     this.mobileMenuOpen = false;
   }
 
+<<<<<<< HEAD
   openCVModal(): void {
     this.showCVModal = true;
     document.body.style.overflow = 'hidden';
@@ -232,6 +314,16 @@ export class AppComponent {
 
   async onSubmit(): Promise<void> {
     if (this.isSubmitting) return;
+=======
+  onSubmit() {
+    if (!this.formData.name || !this.formData.email || !this.formData.message) {
+      this.formMessage = {
+        type: 'error',
+        text: 'Please fill in all required fields.'
+      };
+      return;
+    }
+>>>>>>> main
 
     // Validate form
     if (!this.formData.name || !this.formData.email || !this.formData.message) {
@@ -244,8 +336,8 @@ export class AppComponent {
     }
 
     this.isSubmitting = true;
-    this.submitMessage = '';
 
+<<<<<<< HEAD
     try {
       // Send email using EmailJS
       await this.emailService.sendEmail(this.formData);
@@ -254,6 +346,15 @@ export class AppComponent {
       this.submitSuccess = true;
       this.submitMessage = 'Thank you for your message! I\'ll get back to you soon.';
       
+=======
+    // Simulate form submission (replace with actual API call)
+    setTimeout(() => {
+      this.formMessage = {
+        type: 'success',
+        text: 'Thank you for your message! I\'ll get back to you soon.'
+      };
+
+>>>>>>> main
       // Reset form
       this.formData = {
         name: '',
@@ -262,9 +363,11 @@ export class AppComponent {
         message: ''
       };
 
+      this.isSubmitting = false;
+
       // Clear message after 5 seconds
       setTimeout(() => {
-        this.submitMessage = '';
+        this.formMessage = null;
       }, 5000);
     } catch (error) {
       console.error('Error sending email:', error);
