@@ -1,27 +1,35 @@
+
 import { Injectable } from '@angular/core';
 import emailjs from '@emailjs/browser';
+
+interface EmailData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
-  private serviceId = 'service_4sewchd';
-  private templateId = 'template_rt06ka8';
-  private publicKey = 'QWlYlkFKIPqHLBQeU';
+  private serviceId = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
+  private templateId = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
+  private publicKey = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
 
   constructor() {
-    // Initialize EmailJS with your public key
+    // Initialize EmailJS
     emailjs.init(this.publicKey);
   }
 
-  async sendEmail(formData: any): Promise<any> {
+  async sendEmail(emailData: EmailData): Promise<any> {
     try {
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject || 'New Contact Form Message',
-        message: formData.message,
-        to_email: 'stevekingoro@gmail.com'
+        from_name: emailData.name,
+        from_email: emailData.email,
+        subject: emailData.subject || 'Portfolio Contact Form',
+        message: emailData.message,
+        to_name: 'Steven Kingoro'
       };
 
       const response = await emailjs.send(

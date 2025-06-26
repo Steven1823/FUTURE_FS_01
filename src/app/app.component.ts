@@ -1,7 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { RouterOutlet } from '@angular/router';
 import { EmailService } from './services/email.service';
 
@@ -9,22 +9,15 @@ interface Skill {
   name: string;
   level: number;
 }
-=======
->>>>>>> main
 
 interface Project {
   title: string;
   description: string;
   image: string;
   technologies: string[];
-<<<<<<< HEAD
-  liveUrl: string;
-  githubUrl: string;
-  category: 'software' | 'carpentry';
-=======
   liveUrl?: string;
   githubUrl?: string;
->>>>>>> main
+  category: 'software' | 'carpentry';
 }
 
 interface FormData {
@@ -34,351 +27,308 @@ interface FormData {
   message: string;
 }
 
-interface FormMessage {
-  type: 'success' | 'error';
-  text: string;
+interface CVData {
+  personalInfo: {
+    name: string;
+    title: string;
+    email: string;
+    phone: string;
+    location: string;
+    linkedin: string;
+    github: string;
+  };
+  summary: string;
+  experience: Array<{
+    title: string;
+    company: string;
+    period: string;
+    description: string[];
+  }>;
+  education: Array<{
+    degree: string;
+    institution: string;
+    period: string;
+    details?: string[];
+  }>;
+  skills: {
+    technical: string[];
+    languages: string[];
+    tools: string[];
+  };
+  certifications: Array<{
+    name: string;
+    issuer: string;
+    date: string;
+  }>;
 }
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
-  title = 'Steven Kingoro Portfolio';
-  mobileMenuOpen = false;
-  isSubmitting = false;
-<<<<<<< HEAD
-  submitMessage = '';
-  submitSuccess = false;
-  showCVModal = false;
-=======
-  formMessage: FormMessage | null = null;
->>>>>>> main
-
+  title = 'Steven Kingoro - Portfolio';
+  
+  // Mobile menu state
+  isMobileMenuOpen = false;
+  
+  // CV Modal state
+  isModalOpen = false;
+  
+  // Form data
   formData: FormData = {
     name: '',
     email: '',
     subject: '',
     message: ''
   };
-
-<<<<<<< HEAD
-  constructor(private emailService: EmailService) {}
-
-=======
-<<<<<<< HEAD
-=======
->>>>>>> main
+  
+  // Form submission state
+  isSubmitting = false;
+  submitMessage = '';
+  
+  // Skills data
   skills: Skill[] = [
     { name: 'Angular', level: 90 },
-    { name: 'React', level: 85 },
-    { name: 'JavaScript', level: 90 },
     { name: 'TypeScript', level: 85 },
-    { name: 'Python', level: 80 },
+    { name: 'JavaScript', level: 88 },
+    { name: 'HTML/CSS', level: 92 },
     { name: 'Node.js', level: 80 },
-    { name: 'HTML/CSS', level: 95 },
-    { name: 'SQL', level: 80 },
-    { name: 'Git', level: 85 },
-    { name: 'Woodworking', level: 85 },
-    { name: 'Joinery', level: 80 },
-    { name: 'AI/Machine Learning', level: 75 }
+    { name: 'Python', level: 75 },
+    { name: 'Git/GitHub', level: 85 },
+    { name: 'Woodworking', level: 95 }
   ];
-
->>>>>>> master
+  
+  // Projects data with correct image paths
   projects: Project[] = [
-    // Project Showcase - Add your own photos and descriptions
     {
-<<<<<<< HEAD
-      title: 'Portfolio Website',
-      description: 'A modern, responsive portfolio website built with Angular and Tailwind CSS, showcasing my professional work and skills.',
-      image: '/assets/download.JPG',
-      technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'LESS'],
-=======
-<<<<<<< HEAD
-      title: 'Project Showcase 1',
-      description: 'Add description of your first project here - could be software development or woodworking',
-      image: 'assets/shem.jpg', // Replace with your project photo
-      technologies: ['Add', 'Your', 'Technologies']
-      // liveUrl: 'https://your-live-url.com', // optional - add if it's a web project
-      // githubUrl: 'https://github.com/your-repo' // optional - add if it's a code project
-    },
-    {
-      title: 'Project Showcase 2', 
-      description: 'Add description of your second project here - could be software development or woodworking',
-      image: 'assets/shem.jpg', // Replace with your project photo
-      technologies: ['Add', 'Your', 'Technologies']
-      // liveUrl: 'https://your-live-url.com', // optional - add if it's a web project
-      // githubUrl: 'https://github.com/your-repo' // optional - add if it's a code project
-=======
-      title: 'AI-Powered Task Manager',
-      description: 'An intelligent task management application with AI-driven priority suggestions and automated scheduling.',
-      image: '/assets/s1.jpg',
-      technologies: ['Angular', 'Python', 'TensorFlow', 'Node.js'],
->>>>>>> main
-      liveUrl: '#',
+      title: 'E-Commerce Platform',
+      description: 'Full-stack Angular application with TypeScript, featuring user authentication, product catalog, and payment integration.',
+      image: 'assets/s1.jpg',
+      technologies: ['Angular', 'TypeScript', 'Node.js', 'MongoDB'],
+      liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/Steven1823',
       category: 'software'
     },
     {
-      title: 'Weather Dashboard',
-      description: 'An interactive weather dashboard providing real-time weather data, forecasts, and location-based weather information.',
-      image: '/assets/s3.jpg',
-      technologies: ['JavaScript', 'Weather API', 'Chart.js', 'CSS3'],
-      liveUrl: '#',
+      title: 'Task Management App',
+      description: 'Responsive web application for project management with real-time collaboration features.',
+      image: 'assets/s2.jpg',
+      technologies: ['Angular', 'Firebase', 'Material Design'],
+      liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/Steven1823',
       category: 'software'
     },
     {
-      title: 'Modern Drawer Unit',
-      description: 'Minimalist white drawer unit featuring clean lines, smooth sliding mechanisms, and contemporary design perfect for modern spaces.',
-      image: '/assets/shem.jpg',
-      technologies: ['Woodworking', 'Furniture Design', 'Modern Aesthetics', 'Hardware Installation'],
-      liveUrl: '#',
-      githubUrl: '#',
+      title: 'Custom Kitchen Cabinets',
+      description: 'Handcrafted kitchen cabinets with modern design and premium oak finish.',
+      image: 'assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
+      technologies: ['Oak Wood', 'Custom Design', 'Premium Hardware'],
       category: 'carpentry'
     },
     {
-      title: 'Storage Unit with Wicker Baskets',
-      description: 'Elegant white storage unit with four woven wicker baskets, combining traditional craftsmanship with modern design for versatile storage solutions.',
-      image: '/assets/shem.jpg',
-      technologies: ['Woodworking', 'Furniture Design', 'Storage Solutions', 'Wicker Integration'],
-      liveUrl: '#',
-      githubUrl: '#',
+      title: 'Dining Table Set',
+      description: 'Elegant dining table with matching chairs, crafted from solid mahogany.',
+      image: 'assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
+      technologies: ['Mahogany', 'Hand-finished', 'Traditional Joinery'],
       category: 'carpentry'
     },
     {
-      title: 'Side Bed',
-      description: 'Custom-designed wooden side bed with modern aesthetics, featuring clean lines and premium wood finish.',
-      image: '/assets/WhatsApp Image 2025-03-14 at 12.16.51_4f23d0fe.jpg',
-      technologies: ['Woodworking', 'Joinery', 'Design', 'Craftsmanship'],
-      liveUrl: '#',
-      githubUrl: '#',
+      title: 'Built-in Wardrobe',
+      description: 'Space-efficient wardrobe solution with sliding doors and custom compartments.',
+      image: 'assets/WhatsApp Image 2025-04-30 at 11.38.32_a088540c.jpg',
+      technologies: ['Plywood', 'Sliding Mechanism', 'LED Lighting'],
       category: 'carpentry'
     },
     {
-      title: 'Winker Stand',
-      description: 'Elegant wooden winker stand with adjustable features and smooth finish, perfect for modern home decor.',
-      image: '/assets/WhatsApp Image 2025-04-04 at 20.06.13_4b467ecb - Copy.jpg',
-      technologies: ['Woodworking', 'Joinery', 'Design', 'Hardware'],
-      liveUrl: '#',
-<<<<<<< HEAD
-      githubUrl: '#',
+      title: 'Office Desk Setup',
+      description: 'Modern office desk with integrated cable management and storage solutions.',
+      image: 'assets/WhatsApp Image 2025-06-20 at 20.00.30_99b8fdb1.jpg',
+      technologies: ['Engineered Wood', 'Metal Framework', 'Cable Management'],
       category: 'carpentry'
     }
   ];
-
-  // CV Data - Updated with correct information
-  cvData = {
+  
+  // CV Data
+  cvData: CVData = {
     personalInfo: {
       name: 'Steven Kingoro',
-      title: 'Software Developer & Woodworking Craftsman',
+      title: 'Full-Stack Developer & Master Craftsman',
       email: 'stevekingoro@gmail.com',
       phone: '+254 768 558 357',
       location: 'Nairobi, Kenya',
       linkedin: 'https://www.linkedin.com/in/steven-kingoro-658472350',
       github: 'https://github.com/Steven1823'
     },
-    summary: 'Passionate and multi-skilled individual with a strong foundation in software development. Specializing in full-stack development, AI development, and woodworking, I integrate craftsmanship and technology to develop practical, creative solutions—both physical and digital. Proven experience through hands-on projects in software development and training within tech and creative industries.',
-    education: [
+    summary: 'Passionate Full-Stack Developer with expertise in Angular, TypeScript, and modern web technologies. Combined with exceptional woodworking skills, I bring a unique perspective to both digital and physical craftsmanship. Dedicated to creating innovative solutions and beautiful, functional designs.',
+    experience: [
       {
-        degree: 'High School Diploma',
-        institution: 'Tambach High School',
-        period: 'Completed',
-        location: 'Kenya'
+        title: 'Full-Stack Developer',
+        company: 'Freelance',
+        period: '2023 - Present',
+        description: [
+          'Developed responsive web applications using Angular and TypeScript',
+          'Implemented REST APIs with Node.js and Express',
+          'Collaborated with clients to deliver custom software solutions',
+          'Maintained code quality through testing and code reviews'
+        ]
+      },
+      {
+        title: 'Master Carpenter',
+        company: 'Self-Employed',
+        period: '2020 - Present',
+        description: [
+          'Designed and crafted custom furniture pieces for residential clients',
+          'Specialized in kitchen cabinets, wardrobes, and office furniture',
+          'Managed projects from concept to completion',
+          'Maintained high standards of craftsmanship and customer satisfaction'
+        ]
       }
     ],
-    experience: [],
-    certifications: [
+    education: [
       {
-        name: 'Career Essentials in Software Development',
-        issuer: 'Microsoft / LinkedIn Learning',
-        year: '2024'
+        degree: 'Diploma in Software Engineering',
+        institution: 'Technical University',
+        period: '2022 - 2024',
+        details: [
+          'Focus on web development and software architecture',
+          'Graduated with distinction',
+          'Completed capstone project in Angular'
+        ]
       },
       {
-        name: 'Software Development (Artificial Intelligence)',
-        issuer: 'Power Learn Project Academy',
-        year: '2024'
-      },
-      {
-        name: 'Full-Stack Development',
-        issuer: 'Practical Experience',
-        year: '2023-2024'
-      },
-      {
-        name: 'Graphic Design Training',
-        issuer: 'Professional Training',
-        year: '2023'
+        degree: 'Certificate in Carpentry & Joinery',
+        institution: 'Kenya Technical Training Institute',
+        period: '2019 - 2020',
+        details: [
+          'Comprehensive training in woodworking techniques',
+          'Specialized in furniture making and cabinet installation',
+          'Health and safety certification included'
+        ]
       }
     ],
     skills: {
-      technical: ['Full-Stack Development', 'AI Development', 'Python Development', 'JavaScript', 'Angular', 'React', 'HTML/CSS', 'SQL'],
-      soft: ['Leadership & Teamwork', 'Strong English Communication', 'Problem Solving', 'Creative Thinking'],
-      craftsmanship: ['Woodworking', 'Furniture Design', 'Joinery', 'Hand Tools', 'Power Tools', 'Finishing Techniques'],
-      tools: []
+      technical: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Node.js', 'Express', 'MongoDB', 'Git', 'RESTful APIs'],
+      languages: ['English (Fluent)', 'Swahili (Native)'],
+      tools: ['VS Code', 'Postman', 'Git/GitHub', 'npm', 'Angular CLI', 'Figma']
     },
-    volunteer: [
+    certifications: [
       {
-        organization: 'One Hope Kenya',
-        role: 'Volunteer',
-        period: 'Ongoing',
-        description: 'Contributing to community development and social impact initiatives'
-      }
-    ],
-    hobbies: ['Playing Guitar', 'Woodworking & Furniture Design', 'Technology Innovation', 'Creative Problem Solving'],
-    projects: [
-      {
-        name: 'Portfolio Website',
-        description: 'Modern responsive portfolio built with Angular and Tailwind CSS showcasing software and carpentry projects',
-        technologies: ['Angular', 'TypeScript', 'Tailwind CSS']
+        name: 'Angular Developer Certification',
+        issuer: 'Google',
+        date: '2024'
       },
       {
-        name: 'Weather Dashboard',
-        description: 'Interactive weather application with real-time data and forecasts using modern web technologies',
-        technologies: ['JavaScript', 'Weather API', 'Chart.js']
-      },
-      {
-        name: 'Side Bed',
-        description: 'Custom-designed wooden side bed featuring modern aesthetics and precision craftsmanship',
-        technologies: ['Woodworking', 'Joinery', 'Design']
-      },
-      {
-        name: 'Winker Stand',
-        description: 'Elegant wooden winker stand with adjustable features and premium finish',
-        technologies: ['Woodworking', 'Joinery', 'Hardware']
+        name: 'JavaScript ES6+ Certification',
+        issuer: 'freeCodeCamp',
+        date: '2023'
       }
     ]
   };
 
-  toggleMobileMenu(): void {
-=======
-      githubUrl: '#'
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'This very portfolio website built with Angular and Tailwind CSS, featuring smooth animations.',
-      image: '/assets/download.JPG',
-      technologies: ['Angular', 'TypeScript', 'Tailwind CSS'],
-      liveUrl: '#',
-      githubUrl: '#'
->>>>>>> master
-    }
-  ];
+  constructor(private emailService: EmailService) {}
 
   ngOnInit() {
-    // Load Font Awesome
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-    document.head.appendChild(link);
+    // Initialize component
   }
 
+  // Mobile menu toggle
   toggleMobileMenu() {
->>>>>>> main
-    this.mobileMenuOpen = !this.mobileMenuOpen;
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
-  scrollTo(elementId: string) {
-    const element = document.getElementById(elementId);
-    if (element) {
-      const offset = 80; // Account for fixed navbar
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-    this.mobileMenuOpen = false;
+  // Close mobile menu
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
   }
 
-<<<<<<< HEAD
-  openCVModal(): void {
-    this.showCVModal = true;
+  // Modal functions
+  openModal() {
+    this.isModalOpen = true;
     document.body.style.overflow = 'hidden';
   }
 
-  closeCVModal(): void {
-    this.showCVModal = false;
+  closeModal() {
+    this.isModalOpen = false;
     document.body.style.overflow = 'auto';
   }
 
-  downloadCV(): void {
-    // Create a link element and trigger download
-    const link = document.createElement('a');
-    link.href = '/assets/Steven_Kingoro_CV.pdf';
-    link.download = 'Steven_Kingoro_CV.pdf';
-    link.click();
+  // Navigation
+  scrollToSection(sectionId: string) {
+    this.closeMobileMenu();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
-  async onSubmit(): Promise<void> {
-    if (this.isSubmitting) return;
-=======
-  onSubmit() {
+  // Contact form submission
+  async onSubmit() {
     if (!this.formData.name || !this.formData.email || !this.formData.message) {
-      this.formMessage = {
-        type: 'error',
-        text: 'Please fill in all required fields.'
-      };
-      return;
-    }
->>>>>>> main
-
-    // Validate form
-    if (!this.formData.name || !this.formData.email || !this.formData.message) {
-      this.submitSuccess = false;
       this.submitMessage = 'Please fill in all required fields.';
-      setTimeout(() => {
-        this.submitMessage = '';
-      }, 5000);
       return;
     }
 
     this.isSubmitting = true;
+    this.submitMessage = '';
 
-<<<<<<< HEAD
     try {
-      // Send email using EmailJS
       await this.emailService.sendEmail(this.formData);
-      
-      this.isSubmitting = false;
-      this.submitSuccess = true;
-      this.submitMessage = 'Thank you for your message! I\'ll get back to you soon.';
-      
-=======
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      this.formMessage = {
-        type: 'success',
-        text: 'Thank you for your message! I\'ll get back to you soon.'
-      };
-
->>>>>>> main
-      // Reset form
-      this.formData = {
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      };
-
-      this.isSubmitting = false;
-
-      // Clear message after 5 seconds
-      setTimeout(() => {
-        this.formMessage = null;
-      }, 5000);
+      this.submitMessage = 'Message sent successfully! I\'ll get back to you soon.';
+      this.resetForm();
     } catch (error) {
-      console.error('Error sending email:', error);
+      this.submitMessage = 'Failed to send message. Please try again later.';
+      console.error('Email sending failed:', error);
+    } finally {
       this.isSubmitting = false;
-      this.submitSuccess = false;
-      this.submitMessage = 'Sorry, there was an error sending your message. Please try again or contact me directly at stevekingoro@gmail.com';
-      
-      // Clear message after 8 seconds for error messages
-      setTimeout(() => {
-        this.submitMessage = '';
-      }, 8000);
     }
+  }
+
+  // Reset form
+  resetForm() {
+    this.formData = {
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    };
+  }
+
+  // Get software projects
+  get softwareProjects() {
+    return this.projects.filter(project => project.category === 'software');
+  }
+
+  // Get carpentry projects
+  get carpentryProjects() {
+    return this.projects.filter(project => project.category === 'carpentry');
+  }
+
+  // Download CV
+  downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'assets/Steven_Kingoro_CV.pdf';
+    link.download = 'Steven_Kingoro_CV.pdf';
+    link.click();
+  }
+
+  // Social media links
+  openLinkedIn() {
+    window.open('https://www.linkedin.com/in/steven-kingoro-658472350', '_blank');
+  }
+
+  openGitHub() {
+    window.open('https://github.com/Steven1823', '_blank');
+  }
+
+  openEmail() {
+    window.location.href = 'mailto:stevekingoro@gmail.com';
+  }
+
+  openPhone() {
+    window.location.href = 'tel:+254768558357';
   }
 }
