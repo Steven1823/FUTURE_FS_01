@@ -74,6 +74,7 @@ export class AppComponent implements OnInit {
   
   // Mobile menu state
   isMobileMenuOpen = false;
+  mobileMenuOpen = false; // For backward compatibility
   
   // CV Modal state
   isModalOpen = false;
@@ -238,6 +239,7 @@ export class AppComponent implements OnInit {
   // Mobile menu toggle
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.mobileMenuOpen = this.isMobileMenuOpen;
   }
 
   // Close mobile menu
@@ -263,6 +265,11 @@ export class AppComponent implements OnInit {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  // Backward compatibility method
+  scrollTo(sectionId: string) {
+    this.scrollToSection(sectionId);
   }
 
   // Contact form submission

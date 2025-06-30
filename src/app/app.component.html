@@ -3,11 +3,11 @@
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-xl font-bold text-white">Steven Kingoro</div>
     <div class="hidden md:flex space-x-6">
-      <a (click)="scrollTo('home')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Home</a>
-      <a (click)="scrollTo('about')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">About</a>
-      <a (click)="scrollTo('projects')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Projects</a>
-      <a (click)="scrollTo('contact')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Contact</a>
-      <a (click)="scrollTo('contact')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer transition-colors">
+      <a (click)="scrollToSection('home')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Home</a>
+      <a (click)="scrollToSection('about')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">About</a>
+      <a (click)="scrollToSection('projects')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Projects</a>
+      <a (click)="scrollToSection('contact')" class="text-white hover:text-blue-400 cursor-pointer transition-colors">Contact</a>
+      <a (click)="scrollToSection('contact')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer transition-colors"></a>
         Hire Me
       </a>
     </div>
@@ -16,13 +16,13 @@
     </button>
   </div>
   <!-- Mobile Menu -->
-  <div [class.hidden]="!mobileMenuOpen" class="md:hidden bg-gray-800 p-4 mt-4 rounded">
+  <div [class.hidden]="!isMobileMenuOpen" class="md:hidden bg-gray-800 p-4 mt-4 rounded"></div>
     <div class="flex flex-col space-y-4">
-      <a (click)="scrollTo('home'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Home</a>
-      <a (click)="scrollTo('about'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">About</a>
-      <a (click)="scrollTo('projects'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Projects</a>
-      <a (click)="scrollTo('contact'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Contact</a>
-      <a (click)="scrollTo('contact'); toggleMobileMenu()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-center cursor-pointer">
+      <a (click)="scrollToSection('home'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Home</a>
+      <a (click)="scrollToSection('about'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">About</a>
+      <a (click)="scrollToSection('projects'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Projects</a>
+      <a (click)="scrollToSection('contact'); toggleMobileMenu()" class="text-white hover:text-blue-400 cursor-pointer">Contact</a>
+      <a (click)="scrollToSection('contact'); toggleMobileMenu()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-center cursor-pointer"></a>
         Hire Me
       </a>
     </div>
@@ -39,7 +39,7 @@
       <h2 class="text-xl md:text-2xl text-gray-300 mb-6">Software Developer | AI Enthusiast | Woodworker</h2>
       <p class="text-gray-400 mb-8 text-lg">Passionate about creating innovative solutions | Based in Nairobi, Kenya</p>
       <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center md:justify-start">
-        <button (click)="scrollTo('contact')" class="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+        <button (click)="scrollToSection('contact')" class="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors font-semibold">
           Contact Me
         </button>
         <a href="assets/Steven_Kingoro_CV.pdf" download class="bg-gray-700 text-white px-8 py-3 rounded-lg hover:bg-gray-600 transition-colors font-semibold text-center">
@@ -240,16 +240,10 @@
     </div>
 
     <!-- Success/Error Messages -->
-    <div *ngIf="formMessage" class="max-w-2xl mx-auto mb-8 p-4 rounded-lg border-l-4 shadow-lg" 
-         [class.bg-green-50]="formMessage.type === 'success'"
-         [class.text-green-800]="formMessage.type === 'success'"
-         [class.border-green-500]="formMessage.type === 'success'"
-         [class.bg-red-50]="formMessage.type === 'error'"
-         [class.text-red-800]="formMessage.type === 'error'"
-         [class.border-red-500]="formMessage.type === 'error'">
+    <div *ngIf="submitMessage" class="max-w-2xl mx-auto mb-8 p-4 rounded-lg border-l-4 shadow-lg bg-green-50 text-green-800 border-green-500">
       <div class="flex items-center">
-        <i [class]="formMessage.type === 'success' ? 'fas fa-check-circle mr-3' : 'fas fa-exclamation-triangle mr-3'"></i>
-        <p class="font-medium">{{formMessage.text}}</p>
+        <i class="fas fa-check-circle mr-3"></i>
+        <p class="font-medium">{{submitMessage}}</p>
       </div>
     </div>
 
