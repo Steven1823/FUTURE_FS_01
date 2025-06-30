@@ -109,7 +109,7 @@ export class AppComponent implements OnInit {
       description: 'Full-stack Angular application with TypeScript, featuring user authentication, product catalog, and payment integration.',
       image: 'assets/s1.jpg',
       technologies: ['Angular', 'TypeScript', 'Node.js', 'MongoDB'],
-      liveUrl: 'https://example.com',
+      liveUrl: '#',
       githubUrl: 'https://github.com/Steven1823',
       category: 'software'
     },
@@ -118,7 +118,7 @@ export class AppComponent implements OnInit {
       description: 'Responsive web application for project management with real-time collaboration features.',
       image: 'assets/s2.jpg',
       technologies: ['Angular', 'Firebase', 'Material Design'],
-      liveUrl: 'https://example.com',
+      liveUrl: '#',
       githubUrl: 'https://github.com/Steven1823',
       category: 'software'
     },
